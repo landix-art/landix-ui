@@ -1,0 +1,19 @@
+{
+  "name": "landix-button",
+  "type": "registry:ui",
+  "dependencies": [
+    "framer-motion",
+    "lucide-react",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/landix-button.tsx",
+      "content": "\"use client\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\nimport { motion } from \"framer-motion\";\r\n\r\nexport default function LandixButton({ className }: { className?: string }) { \r\n  return (\r\n    <motion.button \r\n      whileHover={{ scale: 1.05 }}\r\n      whileTap={{ scale: 0.95 }}\r\n      className={cn(\"bg-black text-white px-4 py-2 rounded-md font-medium\", className)}\r\n    >\r\n      Landix Button\r\n    </motion.button>\r\n  );\r\n}\r\n",
+      "type": "registry:ui",
+      "target": "components/ui/landix-button.tsx"
+    }
+  ]
+}
