@@ -20,7 +20,7 @@ export default function Navbar() {
   const navItems = [
     { name: "Home", href: "/" },
     { name: "Docs", href: "/docs" },
-    { name: "About Us", href: "/about" },
+    { name: "Roadmap", href: "/roadmap" },
   ];
 
   useEffect(() => {
