@@ -14,7 +14,7 @@ export default async function Page({
   const MDX = page.data.body;
 
   return (
-    <div className="prose mx-auto">
+    <div className="prose mx-auto p-10">
       <MDX />
     </div>
   );

@@ -83,14 +83,14 @@ export function Hero() {
             >
               <Link
                 href="/docs"
-                className="group h-12 px-8 rounded-lg bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200 font-semibold flex items-center gap-2 transition-all shadow-xl shadow-black/5 dark:shadow-white/10"
+                className="group h-12 px-8 rounded-xl bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200 font-semibold flex items-center gap-2 transition-all shadow-xl shadow-black/5 dark:shadow-white/10"
               >
                 Browse Components{" "}
                 <ChevronRight className="w-4 h-4 relative left-0 group-hover:left-1 transition-all ease-in-out duration-200" />
               </Link>
               <Link
                 href="https://github.com/landix-art/landix-ui"
-                className="h-12 px-8 rounded-lg bg-white border border-zinc-200 hover:bg-zinc-50 text-zinc-700 dark:bg-zinc-900 dark:border-zinc-800 dark:hover:bg-zinc-800 dark:text-zinc-300 dark:hover:text-white font-medium flex items-center gap-2 transition-all"
+                className="h-12 px-8 rounded-xl bg-white border border-zinc-200 hover:bg-zinc-50 text-zinc-700 dark:bg-zinc-900 dark:border-zinc-800 dark:hover:bg-zinc-800 dark:text-zinc-300 dark:hover:text-white font-medium flex items-center gap-2 transition-all"
               >
                 <Github className="w-4 h-4" /> GitHub
               </Link>
@@ -202,7 +202,7 @@ export function Hero() {
             >
               <div className="absolute -inset-1 bg-linear-to-r from-indigo-500/30 via-purple-500/30 to-cyan-500/30 rounded-2xl blur-xl opacity-50" />
 
-              <div className="relative bg-white dark:bg-[#09090b] border border-zinc-200 dark:border-white/10 rounded-xl overflow-hidden shadow-2xl h-90 flex flex-col ring-1 ring-black/5 dark:ring-white/5 transition-colors">
+              <div className="relative bg-white dark:bg-[#09090b] border border-zinc-200 dark:border-white/10 rounded-3xl overflow-hidden shadow-2xl h-90 flex flex-col ring-1 ring-black/5 dark:ring-white/5 transition-colors">
                 <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-200 dark:border-white/5 bg-zinc-50 dark:bg-[#09090b] transition-colors">
                   <div className="flex gap-2">
                     <div className="w-3 h-3 rounded-full bg-red-300 dark:bg-red-700" />
