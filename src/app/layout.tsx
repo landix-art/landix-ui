@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { RootProvider } from "fumadocs-ui/provider/next";
 import "./globals.css";
 import "fumadocs-ui/style.css";
+import NextTopLoader from "nextjs-toploader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -83,6 +84,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <NextTopLoader color={'#7c86ff'}   template='<div class="bar" role="bar"><div class="peg"></div></div>'/>
         <RootProvider>{children}</RootProvider>
       </body>
     </html>
