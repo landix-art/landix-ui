@@ -4,6 +4,7 @@
   --background: #ffffff;
   --foreground: #171717;
 }
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --color-background: var(--background);
@@ -11,16 +12,63 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1400px;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  @apply bg-white dark:bg-[#010101] dark:text-zinc-50 selection:bg-indigo-500/30 font-sans overflow-x-hidden;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes gradient-x {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 4s ease infinite;
+}
+
+.container {
+  @apply max-w-[100%] px-3 mx-auto sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px];
+}
+
+.react-tweet-theme {
+  --tweet-bg-color: hsl(var(--card));
+  --tweet-bg-color-hover: hsl(var(--accent));
+  
+  --tweet-font-color: hsl(var(--card-foreground));
+  --tweet-font-color-secondary: hsl(var(--muted-foreground));
+  
+  --tweet-border: 1px solid hsl(var(--border));
+  
+  --tweet-color-blue-primary: hsl(var(--primary)); 
+  --tweet-color-blue-secondary: hsl(var(--primary) / 0.8);
+  
+  margin: 0 !important;
+}
+
+.dark .react-tweet-theme {
+  --tweet-bg-color: hsl(var(--card));
+  --tweet-bg-color-hover: hsl(var(--accent));
+  --tweet-font-color: hsl(var(--card-foreground));
+  --tweet-font-color-secondary: hsl(var(--muted-foreground));
+  --tweet-border: 1px solid #252525;
 }
