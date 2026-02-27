@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Sun, Moon, Monitor, Github, Menu, X } from "lucide-react";
 import Image from "next/image";
 
@@ -16,6 +17,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const themeMenuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   const navItems = [
     { name: "Home", href: "/" },
@@ -155,16 +157,26 @@ export default function Navbar() {
               Landix
             </Link>
 
-            <nav className="hidden lg:flex! items-center gap-6 text-sm font-medium text-neutral-600 dark:text-neutral-400">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="hover:text-black dark:hover:text-white transition-colors"
-                >
-                  {item.name}
-                </Link>
-              ))}
+            <nav className="hidden lg:flex! items-center gap-6 text-sm font-medium">
+              {navItems.map((item) => {
+                const isActive =
+                  pathname === item.href ||
+                  (item.href !== "/" && pathname.startsWith(item.href));
+
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={`transition-colors ${
+                      isActive
+                        ? "text-black dark:text-white"
+                        : "text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
             </nav>
           </div>
 
@@ -296,16 +308,26 @@ export default function Navbar() {
           </div>
 
           <nav className="px-4 py-4 flex flex-col gap-3">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="rounded-lg px-3 py-2 text-base font-medium text-neutral-700 hover:bg-neutral-100 hover:text-black dark:text-neutral-300 dark:hover:bg-neutral-900 dark:hover:text-white transition-colors"
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive =
+                pathname === item.href ||
+                (item.href !== "/" && pathname.startsWith(item.href));
+
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`rounded-lg px-3 py-2 text-base font-medium transition-colors ${
+                    isActive
+                      ? "bg-neutral-100 text-black dark:bg-neutral-900 dark:text-white"
+                      : "text-neutral-700 hover:bg-neutral-100 hover:text-black dark:text-neutral-300 dark:hover:bg-neutral-900 dark:hover:text-white"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
           </nav>
         </aside>
       </div>
