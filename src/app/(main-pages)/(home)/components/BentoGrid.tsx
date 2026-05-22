@@ -57,7 +57,9 @@ export function BentoGrid() {
 
         <h2 className="text-4xl font-extrabold tracking-tight sm:text-6xl text-zinc-900 dark:text-white transition-colors">
           Premium UI sections <br className="hidden sm:block" />
-          <span className="text-indigo-500  dark:text-indigo-400">shouldn't cost a premium.</span>
+          <span className="text-indigo-500  dark:text-indigo-400">
+            shouldn't cost a premium.
+          </span>
         </h2>
 
         <p className="max-w-2xl mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 transition-colors">
@@ -85,7 +87,7 @@ export function BentoGrid() {
               <LayoutTemplate className="w-6 h-6" />
             </div>
             <h3 className="mb-2 text-2xl font-bold text-zinc-900 dark:text-white">
-              Premium components
+              Premium sections
             </h3>
             <p className="text-zinc-600 dark:text-zinc-400">
               Complex hero sections, dynamic bento grids, and interactive
@@ -220,85 +222,6 @@ export function BentoGrid() {
                 Drag
               </span>
             </motion.div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          variants={fadeUpVariant}
-          className="relative flex flex-col md:flex-row gap-8 p-8 overflow-hidden border md:col-span-2 rounded-3xl bg-white dark:bg-zinc-950 border-zinc-200 dark:border-white/10 group hover:border-indigo-500/50 transition-colors group items-center justify-between"
-        >
-          <div className="absolute right-0 top-0 w-64 h-64 bg-indigo-500/5 blur-[100px] pointer-events-none" />
-
-          <div className="relative z-10 flex flex-col w-full md:w-1/2">
-            <div className="flex items-center justify-center w-12 h-12 mb-6 border rounded-2xl bg-indigo-50 border-indigo-100 text-indigo-500 dark:bg-indigo-500/10 dark:border-indigo-500/20 dark:text-indigo-400">
-              <Terminal className="w-6 h-6" />
-            </div>
-            <h3 className="mb-2 text-xl font-bold text-zinc-900 dark:text-white">
-              CLI Powered. Own your code.
-            </h3>
-            <p className="text-zinc-400 text-sm leading-relaxed">
-              Native shadcn integration. No separate dependencies to install.
-              Add components straight to your codebase via the shadcn CLI and
-              maintain full ownership of the raw source code.{" "}
-            </p>
-          </div>
-
-          <div className="relative z-10 w-full md:w-1/2 mt-6 md:mt-0">
-            <div className="flex flex-col w-full overflow-hidden dark:bg-[#0d0d0d] border dark:border-zinc-800 rounded-xl shadow-2xl">
-              <div className="flex items-center justify-between px-4 py-3 border-b bg-zinc-100/30 dark:border-zinc-800 dark:bg-[#111]">
-                <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/80" />
-                </div>
-                <button
-                  onClick={handleCopy}
-                  className="p-1.5 transition-colors rounded-md hover:bg-zinc-100 dark:text-zinc-500 dark:hover:text-white dark:hover:bg-zinc-800 cursor-pointer"
-                >
-                  {copied ? (
-                    <Check className="w-4 h-4 text-green-500" />
-                  ) : (
-                    <Copy className="w-4 h-4" />
-                  )}
-                </button>
-              </div>
-              <div className="p-4 font-mono text-sm leading-relaxed dark:text-zinc-300 text-zinc-700">
-                <div className="flex items-start gap-3">
-                  <span className="text-emerald-400 select-none">❯</span>
-                  <span className="break-all">
-                    npx shadcn@latest add{" "}
-                    <span className="text-indigo-400">
-                      @landix/animated-button
-                    </span>
-                  </span>
-                </div>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                  viewport={{ once: true }}
-                  className="flex items-start gap-3 mt-3 dark:text-zinc-500 text-zinc-700"
-                >
-                  <span className="text-blue-500 select-none">ℹ</span>
-                  <span>Installing dependencies...</span>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 1.2 }}
-                  viewport={{ once: true }}
-                  className="flex items-start gap-3 mt-1 dark:text-zinc-500"
-                >
-                  <span className="text-green-500 select-none">✔</span>
-                  <span>
-                    Created{" "}
-                    <span className="dark:text-zinc-400 text-zinc-700">
-                      components/ui/animated-button.tsx
-                    </span>
-                  </span>
-                </motion.div>
-              </div>
-            </div>
           </div>
         </motion.div>
       </motion.div>

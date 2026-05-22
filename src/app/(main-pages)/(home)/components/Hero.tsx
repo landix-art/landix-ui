@@ -3,7 +3,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
-import { Terminal, Github, ChevronRight } from "lucide-react";
+import {
+  Terminal,
+  Github,
+  ChevronRight,
+  Copy,
+  MousePointer2,
+} from "lucide-react";
 import Typewriter from "./Typewriter";
 
 export function Hero() {
@@ -58,9 +64,9 @@ export function Hero() {
               transition={{ delay: 0.1 }}
               className="max-w-4xl text-5xl font-extrabold tracking-tight sm:text-7xl text-zinc-900 dark:text-white mb-6 text-balance transition-colors"
             >
-              The ultimate playground for <br className="hidden sm:block" />
-              <span className="text-indigo-500  dark:text-indigo-400">
-                UI engineers
+              Beautiful startup sections for{" "}
+              <span className="relative inline-block highlight-marker">
+                shadcn/ui
               </span>
             </motion.h1>
 
@@ -70,7 +76,7 @@ export function Hero() {
               transition={{ delay: 0.2 }}
               className="max-w-3xl text-lg font-normal leading-relaxed text-zinc-600 dark:text-zinc-300 sm:text-xl mb-10 text-balance transition-colors"
             >
-              A premium library of copy-and-paste elements designed for maximum
+              A premium library of copy-and-paste sections designed for maximum
               customizability. Fully typed and engineered with Next.js,
               Typescript, Tailwind CSS, Shadcn, and Motion.
             </motion.p>
@@ -224,45 +230,112 @@ export function Hero() {
                   <AnimatePresence mode="wait">
                     {step === 1 && (
                       <motion.div
-                        key="terminal"
+                        key="copy-code"
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="w-full h-full flex flex-col justify-start items-start text-left"
+                        className="w-full h-full flex flex-col justify-start text-left overflow-hidden relative rounded-md bg-white dark:bg-zinc-950 p-4 border border-zinc-200 dark:border-zinc-800 shadow-sm"
                       >
-                        <div className="flex items-center gap-2 text-zinc-800 dark:text-zinc-100">
-                          <span className="text-indigo-600 dark:text-indigo-400">
-                            ~/project
+                        <div className="flex justify-between items-center mb-4 border-b border-zinc-100 dark:border-zinc-800 pb-2">
+                          <span className="text-zinc-500 dark:text-zinc-400 text-sm font-medium">
+                            components/landix/hero.tsx
                           </span>
-                          <span className="text-zinc-400 dark:text-zinc-500">
-                            $
-                          </span>
-                          <Typewriter
-                            text=" npx shadcn@latest add @landix/AnimatedButton "
-                            delay={500}
-                          />
+
+                          <motion.div
+                            className="flex items-center gap-1 text-xs px-2 py-1 rounded border bg-zinc-100 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400"
+                            animate={{
+                              color: ["inherit", "inherit", "#16a34a"],
+                              borderColor: ["inherit", "inherit", "#86efac"],
+                              backgroundColor: [
+                                "inherit",
+                                "inherit",
+                                "rgba(34, 197, 94, 0.1)",
+                              ],
+                            }}
+                            transition={{ duration: 0.1, delay: 2.4 }}
+                          >
+                            <motion.span
+                              initial={{ opacity: 1, display: "block" }}
+                              animate={{ opacity: 0, display: "none" }}
+                              transition={{ delay: 2.4 }}
+                            >
+                              <Copy className="w-3 h-3" />
+                            </motion.span>
+                            <motion.span
+                              initial={{ opacity: 0, display: "none" }}
+                              animate={{ opacity: 1, display: "block" }}
+                              transition={{ delay: 2.5 }}
+                            >
+                              ✔ Copied!
+                            </motion.span>
+                          </motion.div>
                         </div>
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: 3.7 }}
-                          className="mt-4 flex flex-col gap-1 text-zinc-500 dark:text-zinc-400"
-                        >
-                          <div className="flex items-center gap-2">
-                            <span className="text-green-600 dark:text-green-500">
-                              ✔
-                            </span>{" "}
-                            Installing dependencies.
+
+                        <div className="text-xs md:text-[14px] leading-relaxed opacity-90">
+                          <div className="text-purple-600 dark:text-pink-400">
+                            export default function{" "}
+                            <span className="text-blue-600 dark:text-blue-300">
+                              HeroBlock
+                            </span>
+                            () {"{"}
                           </div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-green-600 dark:text-green-500">
-                              ✔
+                          <div className="pl-4 text-purple-600 dark:text-pink-400">
+                            return (
+                          </div>
+                          <div className="pl-8 text-zinc-800 dark:text-zinc-300">
+                            <span className="text-zinc-400 dark:text-zinc-500">
+                              {"<"}
+                            </span>
+                            <span className="text-blue-700 dark:text-blue-400">
+                              section
                             </span>{" "}
-                            Created{" "}
-                            <span className="text-zinc-900 dark:text-white font-medium">
-                              components/ui/animated-button.tsx
+                            <span className="text-cyan-600 dark:text-cyan-300">
+                              className
+                            </span>
+                            =
+                            <span className="text-amber-600 dark:text-amber-300">
+                              "w-full py-20"
+                            </span>
+                            <span className="text-zinc-400 dark:text-zinc-500">
+                              {">"}
+                            </span>
+                            <br />
+                            <span className="pl-4 text-zinc-400 dark:text-zinc-500">{`{/* Landix block content */}`}</span>
+                            <br />
+                            <span className="text-zinc-400 dark:text-zinc-500">
+                              {"</"}
+                            </span>
+                            <span className="text-blue-700 dark:text-blue-400">
+                              section
+                            </span>
+                            <span className="text-zinc-400 dark:text-zinc-500">
+                              {">"}
                             </span>
                           </div>
+                          <div className="pl-4 text-purple-600 dark:text-pink-400">
+                            )
+                          </div>
+                          <div className="text-purple-600 dark:text-pink-400">
+                            {"}"}
+                          </div>
+                        </div>
+
+                        <motion.div
+                          initial={{ x: 50, y: 100, opacity: 0 }}
+                          animate={{
+                            x: 280,
+                            y: 15,
+                            opacity: 1,
+                            scale: [1, 0.9, 1],
+                          }}
+                          transition={{
+                            duration: 2,
+                            times: [0, 0.9, 1],
+                            delay: 0.5,
+                          }}
+                          className="absolute z-10"
+                        >
+                          <MousePointer2 className="w-5 h-5 fill-zinc-900 stroke-white dark:fill-white dark:stroke-zinc-900 drop-shadow-md" />
                         </motion.div>
                       </motion.div>
                     )}
@@ -273,65 +346,66 @@ export function Hero() {
                         initial={{ opacity: 0, filter: "blur(4px)" }}
                         animate={{ opacity: 1, filter: "blur(0px)" }}
                         exit={{ opacity: 0, filter: "blur(4px)" }}
-                        className="w-full h-full text-left overflow-hidden text-xs md:text-[15px] leading-relaxed"
+                        className="w-full h-full text-left overflow-hidden text-xs md:text-[15px] leading-relaxed bg-white dark:bg-transparent rounded-md p-2"
                       >
-                        <div className="text-pink-600 dark:text-pink-400">
+                        <div className="text-purple-600 dark:text-pink-400">
                           import
                         </div>
-                        <div className="pl-4 text-zinc-700 dark:text-zinc-300">
-                          <span className="text-blue-600 dark:text-blue-400">{`{ AnimatedButton }`}</span>{" "}
+                        <div className="pl-4 text-zinc-800 dark:text-zinc-300">
+                          <span className="text-blue-600 dark:text-blue-300">
+                            HeroBlock
+                          </span>{" "}
                           from{" "}
                           <span className="text-amber-600 dark:text-amber-300">
-                            "@/components/ui/animated-button"
+                            "@/components/landix/hero"
                           </span>
                         </div>
-                        <div className="mt-4 text-pink-600 dark:text-pink-400">
+                        <div className="mt-4 text-purple-600 dark:text-pink-400">
                           export default function{" "}
                           <span className="text-blue-600 dark:text-blue-300">
-                            Page
+                            Home
                           </span>
                           () {"{"}
                         </div>
-                        <div className="pl-4 text-pink-600 dark:text-pink-400">
+                        <div className="pl-4 text-purple-600 dark:text-pink-400">
                           return (
                         </div>
-                        <div className="pl-8 bg-zinc-100/50 dark:bg-white/5 border-l-2 border-indigo-500 block w-full py-2 rounded-r-md">
-                          <span className="text-zinc-500 dark:text-zinc-400">
+
+                        <div className="pl-8 bg-green-50 dark:bg-green-500/10 border-l-2 border-green-500 block w-full py-2 rounded-r-md">
+                          <span className="text-zinc-400 dark:text-zinc-500">
                             {"<"}
                           </span>
-                          <span className="text-blue-600 dark:text-blue-400">
-                            AnimatedButton
-                          </span>{" "}
-                          <span className="text-cyan-600 dark:text-cyan-300">
-                            variant
+                          <span className="text-blue-700 dark:text-blue-400">
+                            main
                           </span>
-                          =
-                          <span className="text-amber-600 dark:text-amber-300">
-                            "glow"
-                          </span>
-                          <span className="text-zinc-500 dark:text-zinc-400">
+                          <span className="text-zinc-400 dark:text-zinc-500">
                             {">"}
                           </span>
                           <br />
-                          <span className="text-zinc-900 dark:text-white pl-4">
-                            {" "}
-                            Get Started{" "}
+                          <span className="pl-4 block mt-1 relative">
+                            <motion.span
+                              initial={{ opacity: 0, width: 0 }}
+                              animate={{ opacity: 1, width: "auto" }}
+                              className="bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-300 px-1 rounded inline-block font-medium"
+                            >
+                              {"<HeroBlock />"}
+                            </motion.span>
                           </span>
-                          <br />
-                          <span className="text-zinc-500 dark:text-zinc-400">
+                          <span className="text-zinc-400 dark:text-zinc-500">
                             {"</"}
                           </span>
-                          <span className="text-blue-600 dark:text-blue-400">
-                            AnimatedButton
+                          <span className="text-blue-700 dark:text-blue-400">
+                            main
                           </span>
-                          <span className="text-zinc-500 dark:text-zinc-400">
+                          <span className="text-zinc-400 dark:text-zinc-500">
                             {">"}
                           </span>
                         </div>
-                        <div className="pl-4 text-pink-600 dark:text-pink-400">
+
+                        <div className="pl-4 text-purple-600 dark:text-pink-400">
                           )
                         </div>
-                        <div className="text-pink-600 dark:text-pink-400">
+                        <div className="text-purple-600 dark:text-pink-400">
                           {"}"}
                         </div>
                       </motion.div>
@@ -343,21 +417,32 @@ export function Hero() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 1.05 }}
-                        className="w-full h-full flex flex-col items-center justify-center gap-4"
+                        className="w-full h-full flex flex-col items-center justify-center gap-4 relative bg-zinc-50 dark:bg-transparent rounded-md overflow-hidden"
                       >
-                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px]" />
+                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px]" />
 
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="relative group cursor-pointer z-10"
+                        <motion.div
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ delay: 0.2 }}
+                          className="relative z-10 w-full max-w-sm text-center flex flex-col items-center gap-3 p-6 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-white dark:bg-zinc-950/80 shadow-lg dark:shadow-none backdrop-blur-md"
                         >
-                          <div className="absolute -inset-0.5 bg-linear-to-r from-indigo-500 to-cyan-500 rounded-lg blur opacity-50 group-hover:opacity-100 transition duration-300" />
-                          <div className="relative px-8 py-3 bg-zinc-900 dark:bg-zinc-950 rounded-lg text-white font-medium flex items-center gap-2">
-                            Get Started{" "}
-                            <ChevronRight className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
+                          <div className="w-10 h-10 rounded-xl bg-linear-to-tr from-indigo-500 to-cyan-500 mb-1 shadow-inner flex items-center justify-center">
+                            <span className="text-white font-bold text-lg">
+                              L
+                            </span>
                           </div>
-                        </motion.button>
+                          <h3 className="text-lg font-bold text-zinc-900 dark:text-white">
+                            Welcome to Landix
+                          </h3>
+                          <p className="text-xs text-zinc-600 dark:text-zinc-400">
+                            Simply copy, paste, and build stunning websites in
+                            minutes. No CLI required.
+                          </p>
+                          <button className="mt-3 px-6 py-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-lg text-sm font-semibold hover:scale-105 transition-transform shadow-md">
+                            Get Started
+                          </button>
+                        </motion.div>
                       </motion.div>
                     )}
                   </AnimatePresence>

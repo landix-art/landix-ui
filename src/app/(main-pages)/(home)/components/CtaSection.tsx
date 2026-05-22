@@ -23,7 +23,7 @@ export function CtaSection() {
           </h2>
           
           <p className="text-zinc-500 dark:text-zinc-400 mb-10 text-lg leading-relaxed">
-            Add beautifully crafted components directly to your project via our registry. 
+            Add beautifully crafted sections directly to your project via our registry. 
             You own the raw code, you shape the experience.
           </p>
           

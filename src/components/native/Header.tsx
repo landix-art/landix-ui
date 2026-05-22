@@ -21,8 +21,9 @@ export default function Navbar() {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "Docs", href: "/docs" },
+    { name: "Blocks", href: "/blocks" },
     { name: "Roadmap", href: "/roadmap" },
+    { name: "About us", href: "/about-us" },
   ];
 
   useEffect(() => {

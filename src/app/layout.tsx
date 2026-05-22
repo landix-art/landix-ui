@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { RootProvider } from "fumadocs-ui/provider/next";
-import "./globals.css";
-import "fumadocs-ui/style.css";
 import NextTopLoader from "nextjs-toploader";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://landix.art"),
+  metadataBase: new URL("https://landix.design"),
   title: {
     default: "Landix - UI Library for Engineers",
     template: "%s | Landix UI",
@@ -39,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://landix.art",
+    url: "https://landix.design",
     title: "Landix - UI Library for Engineers",
     description:
       "Fluid components that you actually own. Engineered with Next.js, Tailwind CSS, Shadcn, and Motion.",
