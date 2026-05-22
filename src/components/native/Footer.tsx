@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="w-full border-t dark:border-white/10 dark:bg-black/50 bg-zinc-100/60 backdrop-blur-xl">
       <div className="container text-center mx-auto py-8">
-        <p className="text-center text-sm leading-loose dark:text-zinc-400 md:text-left">
+        <p className="text-center text-sm leading-loose dark:text-zinc-400 md:text-center">
           Built by{" "}
           <Link
             href="https://x.com/salarbuilds"
