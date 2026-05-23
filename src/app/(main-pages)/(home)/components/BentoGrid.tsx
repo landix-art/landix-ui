@@ -28,15 +28,6 @@ const staggerContainer: Variants = {
 };
 
 export function BentoGrid() {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(
-      "npx shadcn@latest add @landix/animated-button",
-    );
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   return (
     <section className="w-full px-4 py-32 max-w-7xl mx-auto">
@@ -47,15 +38,7 @@ export function BentoGrid() {
         viewport={{ once: true, margin: "-100px" }}
         className="flex flex-col items-center mb-16 text-center"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 text-sm font-medium rounded-full text-indigo-600 bg-indigo-50 dark:bg-indigo-500/10 dark:text-indigo-400 ring-1 ring-inset ring-indigo-500/20">
-          <span className="relative flex w-2 h-2">
-            <span className="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-indigo-500"></span>
-            <span className="relative inline-flex w-2 h-2 rounded-full bg-indigo-500"></span>
-          </span>
-          <span>Shadcn registry</span>
-        </div>
-
-        <h2 className="text-4xl font-extrabold tracking-tight sm:text-6xl text-zinc-900 dark:text-white transition-colors">
+        <h2 className="text-3xl font-extrabold tracking-tight mt-10 mb-2 sm:text-5xl text-zinc-900 dark:text-white transition-colors">
           Premium UI sections <br className="hidden sm:block" />
           <span className="text-indigo-500  dark:text-indigo-400">
             shouldn't cost a premium.
@@ -78,7 +61,7 @@ export function BentoGrid() {
       >
         <motion.div
           variants={fadeUpVariant}
-          className="relative flex flex-col p-8 overflow-hidden border md:col-span-2 rounded-3xl bg-white dark:bg-zinc-950 border-zinc-200 dark:border-white/10 group hover:border-indigo-500/50 transition-colors"
+          className="relative flex flex-col p-8 overflow-hidden border md:col-span-3 rounded-3xl bg-white dark:bg-zinc-950 border-zinc-200 dark:border-white/10 group hover:border-indigo-500/50 transition-colors"
         >
           <div className="absolute inset-0 bg-linear-to-br from-indigo-500/5 dark:from-indigo-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -194,7 +177,7 @@ export function BentoGrid() {
 
         <motion.div
           variants={fadeUpVariant}
-          className="relative flex flex-col p-8 overflow-hidden border rounded-3xl bg-white dark:bg-zinc-950 border-zinc-200 dark:border-white/10 group hover:border-indigo-500/50 transition-colors"
+          className="relative flex flex-col p-8 overflow-hidden md:col-span-2 border rounded-3xl bg-white dark:bg-zinc-950 border-zinc-200 dark:border-white/10 group hover:border-indigo-500/50 transition-colors"
         >
           <div className="relative z-10 pointer-events-none">
             <div className="flex items-center justify-center w-12 h-12 mb-6 border rounded-2xl bg-indigo-50 border-indigo-100 text-indigo-500 dark:bg-indigo-500/10 dark:border-indigo-500/20 dark:text-indigo-400">

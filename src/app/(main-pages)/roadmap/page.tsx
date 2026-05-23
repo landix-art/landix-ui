@@ -1,172 +1,328 @@
 "use client";
 
-import { motion } from "motion/react";
-import { 
-  CheckCircle2, 
-  CircleDashed, 
-  Github, 
-  Sparkles, 
-  Code2, 
-  Boxes, 
-  Wind 
+import { motion } from "framer-motion";
+import {
+  Rocket,
+  Layout,
+  CreditCard,
+  Grid,
+  Palette,
+  Box,
+  Terminal,
+  Sparkles,
+  Blocks,
+  PanelTop,
+  MessageSquareHeart,
+  Settings2,
+  AlertCircle,
+  CheckCircle2,
+  CalendarDays,
 } from "lucide-react";
 
-const CORE_PILLARS = [
-  { icon: Code2, title: "100% Free & Open", desc: "No premium tiers. Everything is open-source and yours to own." },
-  { icon: Boxes, title: "shadcn/ui Based", desc: "Seamlessly integrates with your existing shadcn architecture." },
-  { icon: Wind, title: "Tailwind CSS v4", desc: "Built with the latest and fastest version of Tailwind CSS." },
-  { icon: Sparkles, title: "Powered by Motion", desc: "Fluid, hardware-accelerated animations using motion/react." },
+const currentlyBuilding = [
+  {
+    title: "Startup Hero Sections",
+    description: "Beautiful hero sections designed for modern startups.",
+    icon: Layout,
+    tags: ["SaaS", "AI Startups", "Dev Tools", "Agencies"],
+    planned: [
+      "Apple-inspired UI",
+      "Futuristic AI layouts",
+      "Developer-focused pages",
+    ],
+  },
+  {
+    title: "Pricing Sections",
+    description:
+      "Clean, conversion-focused pricing layouts designed for startup websites.",
+    icon: CreditCard,
+    tags: ["High Conversion", "Clear ROI"],
+    planned: [
+      "SaaS pricing tables",
+      "Modern pricing cards",
+      "Founder-friendly layouts",
+    ],
+  },
+  {
+    title: "Features & Bento Sections",
+    description: "Clear and modern layouts to explain products beautifully.",
+    icon: Grid,
+    tags: ["Visual Storytelling", "Bento Grid"],
+    planned: ["Bento grids", "Product showcases", "Technical feature sections"],
+  },
 ];
 
-const ROADMAP_DATA = [
+const designFamilies = [
+  { title: "Apple Inspired", desc: "Minimal, premium, elegant.", icon: Box },
   {
-    phase: "Phase 1",
-    status: "in-progress",
-    title: "Foundation & Page Sections",
-    description: "The essential building blocks for modern landing pages.",
-    items: ["Headers & Footers", "Hero Sections", "Social Proof & Testimonials", "Pricing & CTA", "Bento Grids"],
+    title: "Futuristic Startup",
+    desc: "Modern, dark, premium startup feel.",
+    icon: Sparkles,
   },
   {
-    phase: "Phase 2",
-    status: "planned",
-    title: "Typography & Micro-Interactions",
-    description: "Bringing text and user interactions to life.",
-    items: ["Text Reveal & Aurora Text", "Typing & Morphing Animations", "Smooth Cursors & Pointers", "Animated Buttons (Ripple, Rainbow)"],
+    title: "Developer / Linear",
+    desc: "Clean, serious, developer-focused UI.",
+    icon: Terminal,
+  },
+];
+
+const comingNext = [
+  {
+    title: "Startup Kits",
+    desc: "Complete startup-ready experiences where sections visually fit together.",
+    icon: Blocks,
   },
   {
-    phase: "Phase 3",
-    status: "planned",
-    title: "Visual Effects & Backgrounds",
-    description: "Immersive environments and eye-catching details.",
-    items: ["Flickering & Retro Grids", "Particles & Meteors", "Animated Beams & Borders", "Interactive Background Patterns"],
+    title: "Navigation & Footers",
+    desc: "Matching navigation and footer blocks for every design family.",
+    icon: PanelTop,
   },
   {
-    phase: "Phase 4",
-    status: "planned",
-    title: "Advanced Components & Community",
-    description: "Complex UI elements and community-driven requests.",
-    items: ["Device Mocks (Safari, iPhone)", "Dock & Globe Components", "Interactive File Trees", "Complex Chart Wrappers"],
+    title: "Testimonials & Social Proof",
+    desc: "Startup trust sections designed to improve conversions.",
+    icon: MessageSquareHeart,
+  },
+  {
+    title: "Better Customization",
+    desc: "Making every section easier to edit, adapt, and make your own.",
+    icon: Settings2,
   },
 ];
 
 export default function RoadmapPage() {
   return (
-    <div className="min-h-screen pt-32 pb-24">
-      <div className="container">
-        
-        <div className="text-center max-w-2xl mx-auto mb-20">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mb-6"
-          >
-            The Road Ahead
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed"
-          >
-            We are building the ultimate collection of animated, copy-paste components. 
-            Here is what we are working on and what is coming next.
-          </motion.p>
-        </div>
+    <article className="min-h-screen bg-background text-foreground pb-24 selection:bg-[#615fff]/30 overflow-hidden">
+      <section className="relative pt-32 pb-24 px-4 flex flex-col items-center text-center">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.15, 0.25, 0.15],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-100 bg-[#615fff] rounded-full blur-[120px] pointer-events-none -z-10"
+        />
 
-        <div className="grid grid-cols-1! sm:grid-cols-2! lg:grid-cols-4! gap-6 mb-24">
-          {CORE_PILLARS.map((Pillar, index) => (
+        <div className="max-w-3xl mx-auto space-y-6 relative z-10">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#615fff]/10 text-[#615fff] text-sm font-medium border border-[#615fff]/20 mb-4 cursor-default shadow-[0_0_15px_rgba(97,95,255,0.2)]"
+          >
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 + (index * 0.1) }}
-              className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/50"
+              animate={{ y: [-2, 2, -2] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
             >
-              <div className="w-10 h-10 rounded-lg bg-violet-100 dark:bg-violet-500/10 flex items-center justify-center mb-4 text-violet-600 dark:text-violet-400">
-                <Pillar.icon className="w-5 h-5" />
-              </div>
-              <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-2">
-                {Pillar.title}
-              </h3>
-              <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                {Pillar.desc}
-              </p>
+              <Rocket className="w-4 h-4" />
             </motion.div>
-          ))}
+            <span>Public Roadmap</span>
+          </motion.div>
+
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground">
+            The Road Ahead
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+            Landix is being built to become a curated startup section ecosystem
+            for <strong className="text-foreground">shadcn/ui</strong> — focused
+            on beautiful, production-ready sections.
+          </p>
         </div>
+      </section>
 
-        <div className="relative border-l border-zinc-200 dark:border-zinc-800 ml-3 md:ml-4 space-y-16 max-w-3xl mx-auto">
-          {ROADMAP_DATA.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 + (index * 0.15), ease: "easeOut" }}
-              className="relative pl-8 md:pl-12"
-            >
-              <div className="absolute -left-[0.7rem] md:-left-4 top-1 bg-white dark:bg-zinc-950 rounded-4xl p-1">
-                {item.status === "done" ? (
-                  <CheckCircle2 className="w-6 h-6 text-violet-500" />
-                ) : item.status === "in-progress" ? (
-                  <CircleDashed className="w-6 h-6 text-fuchsia-500 animate-[spin_4s_linear_infinite]" />
-                ) : (
-                  <div className="w-6 h-6 rounded-full border-2 border-zinc-200 dark:border-zinc-800" />
-                )}
-              </div>
+      {/* CURRENTLY BUILDING SECTION */}
+      <section className="max-w-7xl mx-auto px-4 py-16">
+        <div>
+          <div className="flex items-center gap-3 mb-12">
+            <div className="w-12 h-12 rounded-2xl bg-[#615fff]/10 flex items-center justify-center border border-[#615fff]/20 relative">
+              <motion.span
+                animate={{ scale: [1, 1.5, 1], opacity: [1, 0, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute w-4 h-4 rounded-full bg-[#615fff]/30"
+              />
+              <span className="w-3 h-3 rounded-full bg-[#615fff] relative z-10" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+              Currently Building
+            </h2>
+          </div>
 
-              <div className="flex flex-col">
-                <span className="text-sm font-medium text-violet-600 dark:text-violet-400 mb-2 uppercase tracking-wider">
-                  {item.phase}
-                </span>
-                <h3 className="text-2xl font-medium text-zinc-900 dark:text-zinc-100 mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {currentlyBuilding.map((item, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                className="group relative flex flex-col p-8 rounded-3xl border border-border bg-card shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(97,95,255,0.15)] hover:border-[#615fff]/40 transition-all duration-300"
+              >
+                <motion.div
+                  whileHover={{ rotate: 5, scale: 1.1 }}
+                  className="w-14 h-14 rounded-xl bg-[#615fff]/5 flex items-center justify-center mb-6 group-hover:bg-[#615fff]/10 transition-colors"
+                >
+                  <item.icon className="w-7 h-7 text-[#615fff]" />
+                </motion.div>
+
+                <h3 className="text-2xl font-semibold mb-3">{item.title}</h3>
+                <p className="text-muted-foreground mb-8 flex-1 leading-relaxed">
                   {item.description}
                 </p>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {item.items.map((subItem, i) => (
-                    <div key={i} className="flex items-center text-sm text-zinc-600 dark:text-zinc-300">
-                      <div className="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700 mr-2.5" />
-                      {subItem}
-                    </div>
-                  ))}
+
+                <div className="space-y-5">
+                  <div>
+                    <h4 className="text-xs font-bold text-foreground/50 uppercase tracking-widest mb-3">
+                      Planned Styles
+                    </h4>
+                    <ul className="space-y-2.5">
+                      {item.planned.map((plan, i) => (
+                        <li
+                          key={i}
+                          className="text-sm text-muted-foreground flex items-center gap-2"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#615fff]/50 group-hover:bg-[#615fff] transition-colors" />{" "}
+                          {plan}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="flex flex-wrap gap-2 pt-5 border-t border-border/50">
+                    {item.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className="text-[11px] font-semibold px-2.5 py-1.5 rounded-md bg-secondary text-secondary-foreground"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mt-32 p-10 rounded-3xl bg-violet-500/5 border border-violet-500/10 text-center relative overflow-hidden"
-        >
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-violet-500/10 blur-[100px] pointer-events-none" />
-          
-          <div className="relative z-10">
-            <h3 className="text-xl md:text-2xl font-semibold text-zinc-900 dark:text-white mb-3">
-              Want to see something else?
-            </h3>
-            <p className="text-zinc-500 dark:text-zinc-400 mb-8 max-w-md mx-auto text-base">
-              We prioritize components based on community feedback. Open an issue on GitHub and let us know.
-            </p>
-            <a
-              href="https://github.com/landix-art/landix-ui/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-11 items-center justify-center rounded-xl bg-zinc-900 dark:bg-white px-8 text-sm font-medium text-white dark:text-zinc-900 transition-all hover:bg-zinc-800 dark:hover:bg-zinc-100 hover:scale-[1.02] active:scale-[0.98]"
-            >
-              <Github className="w-4 h-4 mr-2" />
-              Request a Component
-            </a>
+              </motion.div>
+            ))}
           </div>
-        </motion.div>
+        </div>
+      </section>
 
-      </div>
-    </div>
+      <section className="max-w-7xl mx-auto px-4 py-16">
+        <div>
+          <div className="flex items-center gap-3 mb-12">
+            <div className="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center border border-border">
+              <CalendarDays className="w-6 h-6 text-foreground/70" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground/90">
+              Coming Next
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {comingNext.map((item, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                className="group p-6 rounded-3xl border border-border bg-card/50 shadow-sm hover:bg-card hover:shadow-[0_10px_30px_-15px_rgba(97,95,255,0.1)] hover:border-[#615fff]/30 transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-xl bg-secondary/50 flex items-center justify-center mb-5 group-hover:bg-[#615fff]/10 transition-colors">
+                  <item.icon className="w-6 h-6 text-foreground/70 group-hover:text-[#615fff] transition-colors" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full bg-secondary/20 py-24 my-20 border-y border-border relative overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <motion.div
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
+              className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#615fff]/10 text-[#615fff] mb-6 border border-[#615fff]/20"
+            >
+              <Palette className="w-7 h-7" />
+            </motion.div>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+              Design Families
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Consistent UI families so your pages look cohesive instantly.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {designFamilies.map((family, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.03 }}
+                className="group flex flex-col items-center text-center p-8 bg-background rounded-3xl border border-border shadow-sm hover:border-[#615fff]/30 transition-all duration-300"
+              >
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 3 + index,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <family.icon
+                    className="w-10 h-10 text-[#615fff] mb-6 group-hover:drop-shadow-[0_0_10px_rgba(97,95,255,0.5)] transition-all"
+                    strokeWidth={1.5}
+                  />
+                </motion.div>
+                <h3 className="text-xl font-semibold mb-3">{family.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {family.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-5xl mx-auto px-4 py-20">
+        <div className="relative rounded-[2.5rem] overflow-hidden border border-[#615fff]/30 bg-linear-to-b from-[#615fff]/5 to-background p-10 md:p-16 text-center shadow-2xl shadow-[#615fff]/5">
+          <motion.div
+            animate={{ opacity: [0.3, 0.7, 0.3], width: ["40%", "60%", "40%"] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-0 left-1/2 -translate-x-1/2 h-0.5 bg-linear-to-r from-transparent via-[#615fff] to-transparent"
+          />
+
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-12">
+            Why Landix?
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+            <motion.div
+              whileHover={{ x: -5 }}
+              className="space-y-4 p-8 rounded-3xl bg-destructive/5 border border-destructive/10 transition-transform"
+            >
+              <div className="flex items-center gap-3 text-destructive font-semibold text-lg">
+                <AlertCircle className="w-6 h-6" />
+                <span>Without Landix</span>
+              </div>
+              <p className="text-muted-foreground leading-relaxed text-base">
+                Mixing random sections from different UI libraries results in
+                inconsistent design, broken spacing, and websites that feel
+                disconnected.
+              </p>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ x: 5 }}
+              className="space-y-4 p-8 rounded-3xl bg-[#615fff]/10 border border-[#615fff]/20 transition-transform relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-linear-to-br from-[#615fff]/5 to-transparent pointer-events-none" />
+              <div className="flex items-center gap-3 text-[#615fff] font-semibold text-lg relative z-10">
+                <CheckCircle2 className="w-6 h-6" />
+                <span>With Landix</span>
+              </div>
+              <p className="text-foreground/90 leading-relaxed text-base relative z-10">
+                Carefully curated startup sections that are designed to work
+                together and look premium right out of the box.{" "}
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+    </article>
   );
 }

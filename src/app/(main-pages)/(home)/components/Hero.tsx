@@ -30,7 +30,7 @@ export function Hero() {
 
   return (
     <section className="relative w-full text-center pb-10 pt-10 overflow-hidden">
-      <div className="container">
+      <div className="container mx-auto">
         <div className="rounded-3xl py-10 ">
           <div className="opacity-80">
             <div className="absolute top-[30%] left-[25%] w-[45%] h-[60%] bg-[#6911b4]/30 rounded-[100%] blur-[160px] opacity-80 pointer-events-none transform-gpu"></div>
@@ -46,23 +46,12 @@ export function Hero() {
             <div className="absolute top-[35%] -right-[5%] w-[35%] h-[55%] bg-[#4433da] rounded-[100%] blur-[150px] opacity-70 pointer-events-none transform-gpu"></div>
           </div>
           <div className="flex flex-col justify-center items-center relative z-20">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mb-8 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-200 bg-indigo-50 dark:border-indigo-500/20 dark:bg-indigo-500/10 text-sm font-medium text-indigo-700 dark:text-indigo-300 backdrop-blur-md transition-colors"
-            >
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-              </span>
-              Currently in Public Beta
-            </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="max-w-4xl text-5xl font-extrabold tracking-tight sm:text-7xl text-zinc-900 dark:text-white mb-6 text-balance transition-colors"
+              className="max-w-4xl text-5xl mt-16 font-extrabold tracking-tight sm:text-7xl text-zinc-900 dark:text-white mb-6 text-balance transition-colors"
             >
               Beautiful startup sections for{" "}
               <span className="relative inline-block highlight-marker">
@@ -216,9 +205,8 @@ export function Hero() {
                     <div className="w-3 h-3 rounded-full bg-green-300 dark:bg-green-700" />
                   </div>
                   <div className="text-xs text-zinc-500 font-mono flex items-center gap-2">
-                    {step === 1 ? <Terminal className="w-3 h-3" /> : null}
                     {step === 1
-                      ? "terminal"
+                      ? "Landix website"
                       : step === 2
                         ? "page.tsx"
                         : "preview"}

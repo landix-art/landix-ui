@@ -18,7 +18,7 @@ export function CtaSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center text-center max-w-2xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-zinc-900 dark:text-zinc-100 mb-6">
+        <h2 className="text-3xl font-extrabold tracking-tight mt-10 mb-7 sm:text-5xl text-zinc-900 dark:text-white transition-colors">
             Ready to ship?
           </h2>
           

@@ -90,7 +90,7 @@ export function AnimatedFeatureTimeline() {
   return (
     <section className="w-full px-4 py-16 max-w-6xl mx-auto overflow-hidden">
       <div className="mb-12 md:mb-20 text-center max-w-2xl mx-auto px-4">
-        <h2 className="text-2xl md:text-4xl font-semibold tracking-tight text-foreground mb-3">
+        <h2 className="text-3xl font-extrabold tracking-tight mt-10 mb-8 sm:text-5xl text-zinc-900 dark:text-white transition-colors">
           Production-Ready UI Blocks
         </h2>
         <p className="text-muted-foreground text-sm md:text-base">
