@@ -107,17 +107,16 @@ export default function RoadmapPage() {
             whileHover={{ scale: 1.05 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#615fff]/10 text-[#615fff] text-sm font-medium border border-[#615fff]/20 mb-4 cursor-default shadow-[0_0_15px_rgba(97,95,255,0.2)]"
           >
-            <motion.div
-              animate={{ y: [-2, 2, -2] }}
-              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            >
+            <motion.div>
               <Rocket className="w-4 h-4" />
             </motion.div>
             <span>Public Roadmap</span>
           </motion.div>
 
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground">
-            The Road Ahead
+          <h1 className="max-w-4xl text-5xl font-extrabold tracking-tight sm:text-7xl text-zinc-900 dark:text-white mb-6 text-balance transition-colors">
+            The{" "}
+            <span className="relative inline-block highlight-marker">Road</span>{" "}
+            Ahead
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
             Landix is being built to become a curated startup section ecosystem

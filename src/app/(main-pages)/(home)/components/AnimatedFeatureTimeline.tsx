@@ -98,10 +98,10 @@ export function AnimatedFeatureTimeline() {
   return (
     <section className="w-full px-4 py-16 max-w-6xl mx-auto overflow-hidden">
       <div className="mb-12 md:mb-20 text-center max-w-2xl mx-auto px-4">
-        <h2 className="text-3xl font-extrabold tracking-tight mt-10 mb-7 sm:text-5xl text-zinc-900 dark:text-white transition-colors">
+        <h3 className="text-3xl font-extrabold tracking-tight mt-10 mb-7 sm:text-5xl text-zinc-900 dark:text-white transition-colors">
           Production-Ready UI{" "}
           <span className="text-indigo-500  dark:text-indigo-400">Blocks</span>
-        </h2>
+        </h3>
         <p className="text-muted-foreground text-sm md:text-base">
           Build stunning Next.js landing pages in minutes with our
           copy-and-paste Shadcn UI sections, Tailwind components, and modular

@@ -38,12 +38,12 @@ export function BentoGrid() {
         viewport={{ once: true, margin: "-100px" }}
         className="flex flex-col items-center mb-16 text-center"
       >
-        <h2 className="text-3xl font-extrabold tracking-tight mt-10 mb-2 sm:text-5xl text-zinc-900 dark:text-white transition-colors">
+        <h3 className="text-3xl font-extrabold tracking-tight mt-10 mb-2 sm:text-5xl text-zinc-900 dark:text-white transition-colors">
           Premium UI sections <br className="hidden sm:block" />
           <span className="text-indigo-500  dark:text-indigo-400">
             shouldn't cost a premium.
           </span>
-        </h2>
+        </h3>
 
         <p className="max-w-2xl mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 transition-colors">
           A collection of animated website sections. Add them directly from our

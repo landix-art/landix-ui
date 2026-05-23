@@ -10,7 +10,7 @@ export function Testimonials() {
 
       <div className="container px-4 md:px-6 mx-auto relative z-10">
         <div className="text-center mb-16">
-          <motion.h2
+          <motion.h3
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -20,7 +20,7 @@ export function Testimonials() {
             <span className="text-indigo-500  dark:text-indigo-400">
               Saying
             </span>
-          </motion.h2>
+          </motion.h3>
         </div>
 
         <div className="max-w-3xl mx-auto">
