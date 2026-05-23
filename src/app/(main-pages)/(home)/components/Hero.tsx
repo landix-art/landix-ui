@@ -4,13 +4,11 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import {
-  Terminal,
   Github,
   ChevronRight,
   Copy,
   MousePointer2,
 } from "lucide-react";
-import Typewriter from "./Typewriter";
 
 export function Hero() {
   const [step, setStep] = useState(1);

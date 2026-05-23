@@ -14,9 +14,12 @@ export function Testimonials() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl font-extrabold tracking-tight mt-10 mb-8 sm:text-5xl text-zinc-900 dark:text-white transition-colors"
+            className="text-3xl font-extrabold! tracking-tight mt-10 mb-8 sm:text-5xl text-zinc-900 dark:text-white transition-colors"
           >
-            What People Are Saying
+            What People Are{" "}
+            <span className="text-indigo-500  dark:text-indigo-400">
+              Saying
+            </span>
           </motion.h2>
         </div>
 
