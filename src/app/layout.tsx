@@ -17,16 +17,16 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://landix.design"),
   title: {
-    default: "Landix - UI Library for Engineers",
+    default: "Landix - Beautiful startup sections for shadcn/ui",
     template: "%s | Landix UI",
   },
   description:
-    "Fluid components that you actually own. A premium library of copy-and-paste elements built with Next.js, Typescript, Tailwind CSS, Shadcn, and Motion.",
+    "A premium library of copy-and-paste sections designed for maximum customizability. Fully typed and engineered with Next.js, Typescript, Tailwind CSS, Shadcn, and Motion.",
   keywords: [
     "React",
     "Next.js",
     "Tailwind CSS",
-    "UI Components",
+    "UI Blocks",
     "Framer Motion",
     "Shadcn UI",
     "Frontend",
@@ -39,24 +39,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://landix.design",
-    title: "Landix - UI Library for Engineers",
+    title: "Landix - Beautiful startup sections for shadcn/ui",
     description:
-      "Fluid components that you actually own. Engineered with Next.js, Tailwind CSS, Shadcn, and Motion.",
+      "Fluid Blocks that you actually own. Engineered with Next.js, Tailwind CSS, Shadcn, and Motion.",
     siteName: "Landix UI",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Landix UI - Premium React Components",
+        alt: "Landix UI - Premium React Blocks",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Landix - UI Library for Engineers",
+    title: "Landix - Beautiful startup sections for shadcn/ui",
     description:
-      "Fluid components that you actually own. Engineered with Next.js, Tailwind CSS, Shadcn, and Motion.",
+      "Fluid Blocks that you actually own. Engineered with Next.js, Tailwind CSS, Shadcn, and Motion.",
     creator: "@salarbuilds",
     images: ["/og-image.png"],
   },
