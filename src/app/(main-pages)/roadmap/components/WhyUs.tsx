@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { AlertCircle, CheckCircle2 } from "lucide-react";
 

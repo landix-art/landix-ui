@@ -1,5 +1,3 @@
-"use client";
-
 import Hero from "./components/Hero";
 import DesignFamilies from "./components/DesignFamilies";
 import Building from "./components/Building";
