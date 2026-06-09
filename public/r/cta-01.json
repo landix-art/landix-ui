@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cta-01",
+  "type": "registry:block",
+  "dependencies": [
+    "clsx"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "cta-01/components/cta.tsx",
+      "content": "// registry/cta-01/components/cta.tsx\r\nimport { clsx } from \"clsx\";\r\n\r\nexport function Cta() {\r\n  return <div className={clsx(\"p-8\")}>Get started today</div>;\r\n}\r\n",
+      "type": "registry:component",
+      "target": "components/cta.tsx"
+    }
+  ]
+}

@@ -5,39 +5,104 @@ import { globSync } from "glob";
 const REGISTRY_PATH = path.join(process.cwd(), "registry");
 const PUBLIC_R_PATH = path.join(process.cwd(), "public", "r");
 
-fs.ensureDirSync(PUBLIC_R_PATH);
+const IGNORE_DEPS = new Set(["react", "react-dom", "next"]);
 
+const TARGET_MAP: Record<string, { base: string; type: string }> = {
+  app: { base: "app", type: "registry:page" },
+  components: { base: "components", type: "registry:component" },
+  ui: { base: "components/ui", type: "registry:ui" },
+  lib: { base: "lib", type: "registry:lib" },
+  hooks: { base: "hooks", type: "registry:hook" },
+};
+
+function extractDeps(content: string): string[] {
+  const deps = new Set<string>();
+  const importRegex = /from\s+["']([^"']+)["']/g;
+  let match: RegExpExecArray | null;
+
+  while ((match = importRegex.exec(content)) !== null) {
+    const source = match[1];
+    if (source.startsWith(".") || source.startsWith("@/")) continue;
+
+    const pkg = source.startsWith("@")
+      ? source.split("/").slice(0, 2).join("/")
+      : source.split("/")[0];
+
+    if (!IGNORE_DEPS.has(pkg)) deps.add(pkg);
+  }
+  return [...deps];
+}
+
+function resolve(relPath: string): { target: string; type: string } {
+  const segments = relPath.split("/");
+  const [folder, ...rest] = segments;
+  const map = TARGET_MAP[folder];
+
+  if (!map) {
+    return { target: `components/${relPath}`, type: "registry:component" };
+  }
+  return { target: `${map.base}/${rest.join("/")}`, type: map.type };
+}
+
+fs.ensureDirSync(PUBLIC_R_PATH);
 console.log("⏳ Building Landix Registry...");
 
-const componentFiles = globSync("**/*.tsx", { cwd: REGISTRY_PATH, posix: true });
+const blockDirs = fs
+  .readdirSync(REGISTRY_PATH, { withFileTypes: true })
+  .filter((d) => d.isDirectory())
+  .map((d) => d.name);
 
-componentFiles.forEach((file) => {
-  if (file.startsWith("lib") || file.startsWith("hooks")) return;
+const index: { name: string; type: string }[] = [];
 
-  const filePath = path.join(REGISTRY_PATH, file);
-  const fileContent = fs.readFileSync(filePath, "utf8");
-  
-  const componentName = path.basename(file, ".tsx");
-  const type = file.startsWith("blocks") ? "registry:block" : "registry:ui";
+blockDirs.forEach((blockName) => {
+  const blockRoot = path.join(REGISTRY_PATH, blockName);
 
-  const registryPayload = {
-    name: componentName,
-    type: type,
-    dependencies: ["framer-motion", "lucide-react", "clsx", "tailwind-merge"],
+  const relFiles = globSync("**/*.{tsx,ts}", {
+    cwd: blockRoot,
+    posix: true,
+  });
+
+  if (relFiles.length === 0) {
+    console.warn(`⚠️  ${blockName}: no files, skipped`);
+    return;
+  }
+
+  const allDeps = new Set<string>();
+
+  const files = relFiles.map((rel) => {
+    const abs = path.join(blockRoot, rel);
+    const content = fs.readFileSync(abs, "utf8");
+    extractDeps(content).forEach((d) => allDeps.add(d));
+
+    const { target, type } = resolve(rel);
+    return {
+      path: path.posix.join(blockName, rel),
+      content,
+      type,
+      target,
+    };
+  });
+
+  const payload = {
+    $schema: "https://ui.shadcn.com/schema/registry-item.json",
+    name: blockName,
+    type: "registry:block",
+    dependencies: [...allDeps].sort(),
     registryDependencies: [],
-    files: [
-      {
-        path: file,
-        content: fileContent,
-        type: type,
-        target: `components/${file}`, 
-      },
-    ],
+    files,
   };
 
-  const jsonPath = path.join(PUBLIC_R_PATH, `${componentName}.json`);
-  fs.writeJsonSync(jsonPath, registryPayload, { spaces: 2 });
-  console.log(`✅ Generated: ${componentName}.json`);
+  fs.writeJsonSync(path.join(PUBLIC_R_PATH, `${blockName}.json`), payload, {
+    spaces: 2,
+  });
+  index.push({ name: blockName, type: "registry:block" });
+  console.log(`✅ ${blockName}.json  (${files.length} files, ${allDeps.size} deps)`);
 });
 
-console.log("🎉 Registry build complete!");
+fs.writeJsonSync(
+  path.join(PUBLIC_R_PATH, "index.json"),
+  { items: index },
+  { spaces: 2 }
+);
+
+console.log(`🎉 Done. ${index.length} blocks built.`);

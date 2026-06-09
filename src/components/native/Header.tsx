@@ -21,7 +21,7 @@ export default function Navbar() {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "Blocks", href: "/blocks" },
+    { name: "Docs", href: "/docs" },
     { name: "Roadmap", href: "/roadmap" },
     { name: "About us", href: "/about-us" },
   ];
@@ -82,7 +82,7 @@ export default function Navbar() {
       }
     };
 
-    fetchGithubStars();
+    // fetchGithubStars();
   }, []);
 
   useEffect(() => {

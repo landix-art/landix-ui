@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-01",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react",
+    "motion"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "hero-01/lib/data.ts",
+      "content": "",
+      "type": "registry:lib",
+      "target": "lib/data.ts"
+    },
+    {
+      "path": "hero-01/components/hero.tsx",
+      "content": "// registry/hero-01/components/hero.tsx\r\nimport { motion } from \"motion/react\";\r\nimport { ArrowRight } from \"lucide-react\";\r\nimport { cn } from \"@/lib/utils\";\r\nimport { HERO_DATA } from \"@/lib/data\";\r\n\r\nexport function Hero() {\r\n  return (\r\n    <motion.section className={cn(\"py-20\")}>\r\n      <h1>{HERO_DATA.title}</h1>\r\n      <button>\r\n        Start <ArrowRight className=\"size-4\" />\r\n      </button>\r\n    </motion.section>\r\n  );\r\n}\r\n",
+      "type": "registry:component",
+      "target": "components/hero.tsx"
+    },
+    {
+      "path": "hero-01/app/page.tsx",
+      "content": "// registry/hero-01/app/page.tsx\r\nimport { Hero } from \"@/components/hero\";\r\n\r\nexport default function Page() {\r\n  return <Hero />;\r\n}\r\n",
+      "type": "registry:page",
+      "target": "app/page.tsx"
+    }
+  ]
+}

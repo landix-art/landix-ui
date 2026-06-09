@@ -1,0 +1,12 @@
+{
+  "items": [
+    {
+      "name": "cta-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "hero-01",
+      "type": "registry:block"
+    }
+  ]
+}
