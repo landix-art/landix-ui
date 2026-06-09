@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800&display=swap");
+@import "tailwindcss";
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  *,
+  :focus {
+    outline: none;
+  }
+  :root {
+    --primary: #fff;
+    --primary-dark: #fff;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    font-family: "Mulish";
+    font-weight: 700;
+  }
+  h1 {
+    @apply text-[2.3rem] sm:text-[2.6rem] md:text-[2.8rem] lg:text-[3.2rem] xl:text-6xl lg:!leading-[5.5rem];
+  }
+  h2 {
+    @apply text-[1.9rem] sm:text-[2.3rem] lg:text-[2.7rem] xl:text-5xl;
+  }
+  h3 {
+    @apply text-[1.7rem] sm:text-[2rem] lg:text-[2.4rem] xl:text-4xl;
+  }
+  h4 {
+    @apply text-[1.3rem] sm:text-[1.6rem] lg:text-[1.6rem] xl:text-3xl;
+  }
+  h5 {
+    @apply text-[1.1rem] sm:text-[1.3rem] lg:text-[1.4rem] xl:text-2xl;
+  }
+  h6 {
+    @apply text-[1rem] sm:text-[1.1rem] xl:text-xl;
+  }
+  html,
+  body {
+    background: #0e1414 !important;
+  }
+  body {
+    direction: ltr;
+    font-family: "Mulish";
+    color: #fff;
+    min-height: 100vh;
+  }
+}
+.container {
+  @apply max-w-[100%] px-3 mx-auto sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px];
+}
+.btn{@apply p-3 px-4}
+.glass,
+.glass.btn-active {
+  background-size: 100%;
+  transition: background-size 0.3s ease-in-out;
+  background-color: transparent !important;
+  background-image: linear-gradient(
+      135deg,
+      rgb(255 255 255 / var(--glass-opacity, 30%)) 0%,
+      rgb(0 0 0 / 0%) 100%
+    ),
+    linear-gradient(
+      var(--glass-reflex-degree, 100deg),
+      rgb(255 255 255 / var(--glass-reflex-opacity, 10%)) 25%,
+      rgb(0 0 0 / 0%) 25%
+    ) !important;
+}
+.glass:hover {
+  background-size: 500%;
+  transition: background-size 0.4s ease-in-out;
+}
+.bg-fd-secondary\/50.p-3.empty\:hidden {
+  display: none;
+}

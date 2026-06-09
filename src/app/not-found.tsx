@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { MoveLeft, Terminal } from "lucide-react";
+import "@/assets/css/index.css";
 
 export default function NotFound() {
   return (

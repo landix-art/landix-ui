@@ -2,7 +2,7 @@ import { ComponentPlayground } from "../playground/ComponentPlayground";
 
 const demo = {
   title: 'Hero Section',
-  previewUrl: 'https://seomode.co',
+  previewUrl: 'http://localhost:3000/preview/hero-1',
   files: [
     {
       fileName: 'app/components/Hero.tsx',

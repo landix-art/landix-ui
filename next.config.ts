@@ -2,15 +2,15 @@
 const config = {
   reactStrictMode: true,
 
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: "/blocks",
-  //       destination: "/blocks/all",
-  //       permanent: false,
-  //     },
-  //   ];
-  // },
+  async redirects() {
+    return [
+      {
+        source: "/docs",
+        destination: "/docs/introduction",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default config;
