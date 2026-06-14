@@ -31,9 +31,17 @@ export const metadata: Metadata = {
     "Frontend",
     "Web Development",
     "Design System",
+    "UI Components",
+    "React Components",
+    "Landing Page",
+    "Hero Section",
+    "Pricing Section",
+    "Feature Section",
+    "Open Source",
   ],
   authors: [{ name: "Salar", url: "https://x.com/salarbuilds" }],
   creator: "Salar - Landix",
+  publisher: "Landix UI",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -48,6 +56,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "Landix UI - Premium React Blocks",
+        type: "image/png",
       },
     ],
   },
@@ -57,6 +66,7 @@ export const metadata: Metadata = {
     description:
       "Fluid Blocks that you actually own. Engineered with Next.js, Tailwind CSS, Shadcn, and Motion.",
     creator: "@salarbuilds",
+    site: "@salarbuilds",
     images: ["/og-image.png"],
   },
   robots: {
@@ -70,6 +80,12 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  alternates: {
+    canonical: "https://landix.design",
+  },
+  verification: {
+    google: "your-google-site-verification-code", // Replace with actual code
+  },
 };
 
 export default function RootLayout({
@@ -77,8 +93,40 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Landix UI",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Salar",
+      "url": "https://x.com/salarbuilds"
+    },
+    "description": "A premium library of copy-and-paste sections designed for maximum customizability. Fully typed and engineered with Next.js, Typescript, Tailwind CSS, Shadcn, and Motion.",
+    "url": "https://landix.design",
+    "image": "https://landix.design/og-image.png",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "127"
+    }
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

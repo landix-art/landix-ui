@@ -6,14 +6,29 @@ Allow: /
 # Sitemaps
 Sitemap: https://landix.design/sitemap.xml
 
-# Disallow admin/internal paths if any
+# Disallow admin/internal paths
 Disallow: /api/
 Disallow: /_next/
 Disallow: /preview/
+Disallow: /.well-known/
 
 # Allow documentation and public pages
 Allow: /docs/
-Allow: /
+Allow: /guides/
+Allow: /about-us
+Allow: /roadmap
+Allow: /contact-us
 
-# Crawl delay (optional, adjust as needed)
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+# Crawl delay for general bots
 Crawl-delay: 1
