@@ -18,7 +18,7 @@ export function Hero() {
           className="text-6xl md:text-7xl font-bold mb-6"
         >
           Ship products <br />
-          <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
             at lightning speed
           </span>
         </motion.h1>
@@ -38,7 +38,7 @@ export function Hero() {
           transition={{ delay: 0.4 }}
           className="flex flex-wrap justify-center gap-4 mb-16"
         >
-          <button className="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold transition-all shadow-lg shadow-blue-500/30">
+          <button className="px-8 py-4 rounded-full bg-linear-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold transition-all shadow-lg shadow-blue-500/30">
             Get Started Free
           </button>
           <button className="px-8 py-4 rounded-full border border-gray-700 hover:border-gray-600 text-gray-300 font-semibold transition-colors">
@@ -57,7 +57,7 @@ export function Hero() {
             { icon: Shield, title: "Secure by Default", desc: "Built with security in mind" },
             { icon: Rocket, title: "Deploy Instantly", desc: "One-click deployments" },
           ].map(({ icon: Icon, title, desc }, i) => (
-            <div key={i} className="p-6 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50">
+            <div key={i} className="p-6 rounded-2xl bg-linear-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50">
               <Icon className="size-8 text-blue-400 mb-4 mx-auto" />
               <h3 className="text-lg font-semibold mb-2">{title}</h3>
               <p className="text-sm text-gray-400">{desc}</p>

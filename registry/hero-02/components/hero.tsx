@@ -29,7 +29,7 @@ export function Hero() {
           className="text-5xl md:text-6xl font-bold mb-6"
         >
           Build faster with <br />
-          <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             modern components
           </span>
         </motion.h1>

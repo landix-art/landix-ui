@@ -15,7 +15,7 @@ const HeroSection = ({
   description = "",
 }: HeroSectionProps) => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-purple-950/20 to-background">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-b from-purple-950/20 to-background">
       <div className="container mx-auto px-6 py-24 text-center relative z-10">
         <motion.div
           initial={{ y: 20, opacity: 0 }}
@@ -35,7 +35,7 @@ const HeroSection = ({
         >
           {title.split("modern components")[0]}
           <br className="hidden md:block" />
-          <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
             modern components
           </span>
         </motion.h1>

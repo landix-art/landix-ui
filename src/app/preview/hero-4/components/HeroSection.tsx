@@ -29,7 +29,7 @@ const HeroSection = ({
         >
           {title.split("at lightning speed")[0]}
           <br />
-          <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
             at lightning speed
           </span>
         </motion.h1>
@@ -49,7 +49,7 @@ const HeroSection = ({
           transition={{ delay: 0.4, duration: 0.6 }}
           className="flex flex-wrap justify-center gap-4 mb-16"
         >
-          <button className="px-10 py-5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold text-lg transition-all shadow-2xl shadow-blue-500/40 hover:scale-105">
+          <button className="px-10 py-5 rounded-full bg-linear-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold text-lg transition-all shadow-2xl shadow-blue-500/40 hover:scale-105">
             Get Started Free
           </button>
           <button className="px-10 py-5 rounded-full border-2 border-gray-700 hover:border-gray-600 hover:bg-gray-800/50 text-gray-300 font-bold text-lg transition-all">
@@ -69,7 +69,7 @@ const HeroSection = ({
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.6 + i * 0.1, duration: 0.6 }}
-              className="p-8 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 hover:border-gray-600/50 transition-all hover:scale-105"
+              className="p-8 rounded-2xl bg-linear-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 hover:border-gray-600/50 transition-all hover:scale-105"
             >
               <Icon className="size-10 text-blue-400 mb-4 mx-auto" />
               <h3 className="text-xl font-bold mb-2">{featureTitle}</h3>

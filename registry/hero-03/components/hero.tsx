@@ -21,7 +21,7 @@ export function Hero() {
             >
               <div className="flex -space-x-2">
                 {[1, 2, 3].map((i) => (
-                  <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 border-2 border-background" />
+                  <div key={i} className="w-8 h-8 rounded-full bg-linear-to-br from-blue-400 to-purple-500 border-2 border-background" />
                 ))}
               </div>
               <div className="flex items-center gap-1 text-sm text-yellow-500">
@@ -71,7 +71,7 @@ export function Hero() {
             transition={{ delay: 0.3 }}
             className="relative"
           >
-            <div className="aspect-square rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-white/10" />
+            <div className="aspect-square rounded-2xl bg-linear-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-white/10" />
           </motion.div>
         </div>
       </div>

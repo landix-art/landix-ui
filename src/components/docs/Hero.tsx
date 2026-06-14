@@ -98,14 +98,14 @@ export default function IntroSection({ title, description }: IntroSectionProps) 
     <motion.section
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="py-32 px-6 bg-gradient-to-b from-purple-900/20 to-transparent"
+      className="py-32 px-6 bg-linear-to-b from-purple-900/20 to-transparent"
     >
       <div className="max-w-5xl mx-auto text-center">
-        <h1 className="text-7xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+        <h1 className="text-7xl font-bold mb-6 bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
           {title}
         </h1>
         <p className="text-xl text-gray-400 mb-8">{description}</p>
-        <button className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl">
+        <button className="px-8 py-4 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-xl">
           Launch
         </button>
       </div>
@@ -137,7 +137,7 @@ export default function HeroSection() {
         </div>
         <h1 className="text-6xl font-bold mb-6">
           Build faster with <br />
-          <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             modern components
           </span>
         </h1>
@@ -199,7 +199,7 @@ export default function HeroSection() {
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen flex items-center justify-center bg-gradient-to-b from-purple-950/20"
+      className="min-h-screen flex items-center justify-center bg-linear-to-b from-purple-950/20"
     >
       <div className="text-center px-6">
         <motion.div
@@ -212,7 +212,7 @@ export default function HeroSection() {
         </motion.div>
         <h1 className="text-7xl font-bold mb-6">
           Build faster with <br />
-          <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
             modern components
           </span>
         </h1>
@@ -244,7 +244,7 @@ export default function HeroSection() {
             <div className="flex items-center gap-3 mb-6">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 border-2 border-background" />
+                  <div key={i} className="w-10 h-10 rounded-full bg-linear-to-br from-blue-400 to-purple-500 border-2 border-background" />
                 ))}
               </div>
               <div className="flex items-center gap-1.5">
@@ -267,7 +267,7 @@ export default function HeroSection() {
               </button>
             </div>
           </div>
-          <div className="aspect-square rounded-3xl bg-gradient-to-br from-blue-500/20 to-purple-500/20" />
+          <div className="aspect-square rounded-3xl bg-linear-to-br from-blue-500/20 to-purple-500/20" />
         </div>
       </div>
     </section>
@@ -339,7 +339,7 @@ export default function HeroSection() {
             <div className="flex items-center gap-3 mb-6">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-500" />
+                  <div key={i} className="w-10 h-10 rounded-full bg-linear-to-br from-blue-400 to-purple-500" />
                 ))}
               </div>
               <div className="flex items-center gap-1.5">
@@ -356,7 +356,7 @@ export default function HeroSection() {
             </button>
           </motion.div>
           <motion.div initial={{ x: 20 }} animate={{ x: 0 }}>
-            <div className="aspect-square rounded-3xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur" />
+            <div className="aspect-square rounded-3xl bg-linear-to-br from-blue-500/20 to-purple-500/20 backdrop-blur" />
           </motion.div>
         </div>
       </div>
@@ -390,7 +390,7 @@ export default function HeroSection() {
       <div className="text-center px-6">
         <h1 className="text-8xl font-bold mb-6">
           Ship products <br />
-          <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
             at lightning speed
           </span>
         </h1>
@@ -398,7 +398,7 @@ export default function HeroSection() {
           Everything you need to build modern web applications.
         </p>
         <div className="flex justify-center gap-4 mb-16">
-          <button className="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold">
+          <button className="px-8 py-4 rounded-full bg-linear-to-r from-cyan-500 to-blue-600 text-white font-semibold">
             Get Started Free
           </button>
           <button className="px-8 py-4 rounded-full border border-gray-700 text-gray-300 font-semibold">
@@ -499,7 +499,7 @@ export default function HeroSection() {
           className="text-8xl font-bold mb-6"
         >
           Ship products <br />
-          <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
             at lightning speed
           </span>
         </motion.h1>
@@ -507,7 +507,7 @@ export default function HeroSection() {
           Everything you need to build modern web applications.
         </p>
         <div className="flex justify-center gap-4 mb-16">
-          <button className="px-10 py-5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold shadow-2xl shadow-blue-500/40">
+          <button className="px-10 py-5 rounded-full bg-linear-to-r from-cyan-500 to-blue-600 text-white font-bold shadow-2xl shadow-blue-500/40">
             Get Started Free
           </button>
           <button className="px-10 py-5 rounded-full border-2 border-gray-700 text-gray-300 font-bold">

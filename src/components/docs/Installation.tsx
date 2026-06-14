@@ -45,7 +45,7 @@ const Step = ({
 }) => {
   return (
     <div className="flex gap-6 pb-12 border-l border-border last:border-l-transparent pl-8 ml-3 relative">
-      <div className="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-background border border-border flex items-center justify-center text-foreground text-sm font-medium">
+      <div className="absolute -left-4.25 top-0 w-8 h-8 rounded-full bg-background border border-border flex items-center justify-center text-foreground text-sm font-medium">
         {number}
       </div>
       

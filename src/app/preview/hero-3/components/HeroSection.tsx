@@ -31,7 +31,7 @@ const HeroSection = ({
                 {[1, 2, 3, 4].map((i) => (
                   <div
                     key={i}
-                    className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 border-2 border-background flex items-center justify-center text-white font-semibold text-sm"
+                    className="w-10 h-10 rounded-full bg-linear-to-br from-blue-400 to-purple-500 border-2 border-background flex items-center justify-center text-white font-semibold text-sm"
                   >
                     {i}
                   </div>
@@ -84,8 +84,8 @@ const HeroSection = ({
             transition={{ delay: 0.3, duration: 0.6 }}
             className="relative"
           >
-            <div className="aspect-square rounded-3xl bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-white/10 shadow-2xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 animate-pulse" />
+            <div className="aspect-square rounded-3xl bg-linear-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-white/10 shadow-2xl relative overflow-hidden">
+              <div className="absolute inset-0 bg-linear-to-br from-blue-500/10 to-purple-500/10 animate-pulse" />
               <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl" />
               <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-purple-500/20 rounded-full blur-2xl" />
             </div>
