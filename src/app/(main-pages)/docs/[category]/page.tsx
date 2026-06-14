@@ -22,7 +22,7 @@ export default async function CategoryPage({ params }: Props) {
 
   return (
     <div>
-      <h1 className="text-4xl font-bold mb-10">{selectedCategory.title}</h1>
+      <h1 className="text-4xl font-bold mb-5">{selectedCategory.title}</h1>
 
       <DynamicComponent />
     </div>

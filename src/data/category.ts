@@ -2,11 +2,17 @@ import Hero from "@/components/docs/Hero";
 import Features from "@/components/docs/Features";
 import Pricing from "@/components/docs/Pricing";
 import Introduction from "@/components/docs/Introduction";
+import Installation from "@/components/docs/Installation";
 
 export const categories = {
   introduction: {
     title: "Introduction",
     component: Introduction,
+    group: "Getting Started",
+  },
+  installation: {
+    title: "Installation",
+    component: Installation,
     group: "Getting Started",
   },
   hero: {
