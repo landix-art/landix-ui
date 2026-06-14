@@ -1,0 +1,238 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "name": "landix-ui",
+  "description": "Beautiful startup sections and components for shadcn/ui",
+  "repository": "https://github.com/landix-art/landix-ui",
+  "components": [
+    {
+      "id": "hero-01",
+      "name": "Hero Section 1",
+      "category": "hero",
+      "description": "Classic hero section with header navigation, intro content, and partner logos",
+      "registry": "/registry/hero-01",
+      "preview": "/src/app/preview/hero-1",
+      "previewUrl": "http://localhost:3000/preview/hero-1",
+      "dependencies": {
+        "react": "^19.0.0",
+        "next": "^16.0.0",
+        "motion": "^12.0.0",
+        "lucide-react": "^0.575.0"
+      },
+      "files": [
+        {
+          "path": "app/page.tsx",
+          "type": "page",
+          "description": "Page entry point"
+        },
+        {
+          "path": "components/hero.tsx",
+          "type": "component",
+          "description": "Hero component with motion animations"
+        },
+        {
+          "path": "lib/data.ts",
+          "type": "data",
+          "description": "Hero content data"
+        }
+      ],
+      "props": {
+        "title": {
+          "type": "string",
+          "description": "Main heading text"
+        },
+        "description": {
+          "type": "string",
+          "description": "Subheading or description text"
+        },
+        "logos": {
+          "type": "array",
+          "description": "Array of partner logo objects with imgSrc and alt"
+        }
+      },
+      "usage": "import { Hero } from '@/components/hero';\n\nexport default function Page() {\n  return <Hero />;\n}",
+      "tastes": ["apple", "linear", "ai"]
+    },
+    {
+      "id": "hero-02",
+      "name": "Hero Section 2",
+      "category": "hero",
+      "description": "Gradient-focused hero with badge, gradient text headline, and CTA button",
+      "registry": "/registry/hero-02",
+      "preview": "/src/app/preview/hero-2",
+      "previewUrl": "http://localhost:3000/preview/hero-2",
+      "dependencies": {
+        "react": "^19.0.0",
+        "next": "^16.0.0",
+        "motion": "^12.0.0",
+        "lucide-react": "^0.575.0"
+      },
+      "files": [
+        {
+          "path": "app/page.tsx",
+          "type": "page",
+          "description": "Page entry point"
+        },
+        {
+          "path": "components/hero.tsx",
+          "type": "component",
+          "description": "Gradient hero with animations"
+        },
+        {
+          "path": "lib/data.ts",
+          "type": "data",
+          "description": "Hero content data"
+        }
+      ],
+      "props": {
+        "badge": {
+          "type": "string",
+          "description": "Badge text (e.g., 'Now available')"
+        },
+        "title": {
+          "type": "string",
+          "description": "Main heading with gradient highlight"
+        },
+        "description": {
+          "type": "string",
+          "description": "Supporting description text"
+        }
+      },
+      "usage": "import { Hero } from '@/components/hero';\n\nexport default function Page() {\n  return <Hero />;\n}",
+      "tastes": ["apple", "linear", "ai"]
+    },
+    {
+      "id": "hero-03",
+      "name": "Hero Section 3",
+      "category": "hero",
+      "description": "Two-column hero layout with social proof, ratings, and visual placeholder",
+      "registry": "/registry/hero-03",
+      "preview": "/src/app/preview/hero-3",
+      "previewUrl": "http://localhost:3000/preview/hero-3",
+      "dependencies": {
+        "react": "^19.0.0",
+        "next": "^16.0.0",
+        "motion": "^12.0.0",
+        "lucide-react": "^0.575.0"
+      },
+      "files": [
+        {
+          "path": "app/page.tsx",
+          "type": "page",
+          "description": "Page entry point"
+        },
+        {
+          "path": "components/hero.tsx",
+          "type": "component",
+          "description": "Two-column hero with social proof"
+        },
+        {
+          "path": "lib/data.ts",
+          "type": "data",
+          "description": "Hero content and rating data"
+        }
+      ],
+      "props": {
+        "title": {
+          "type": "string",
+          "description": "Main headline text"
+        },
+        "description": {
+          "type": "string",
+          "description": "Supporting description"
+        },
+        "rating": {
+          "type": "string",
+          "description": "Star rating display (e.g., '4.9/5')"
+        },
+        "reviews": {
+          "type": "string",
+          "description": "Review count (e.g., '2.3k reviews')"
+        }
+      },
+      "usage": "import { Hero } from '@/components/hero';\n\nexport default function Page() {\n  return <Hero />;\n}",
+      "tastes": ["apple", "linear", "ai"]
+    },
+    {
+      "id": "hero-04",
+      "name": "Hero Section 4",
+      "category": "hero",
+      "description": "Feature-focused hero with gradient headline and three-column feature grid",
+      "registry": "/registry/hero-04",
+      "preview": "/src/app/preview/hero-4",
+      "previewUrl": "http://localhost:3000/preview/hero-4",
+      "dependencies": {
+        "react": "^19.0.0",
+        "next": "^16.0.0",
+        "motion": "^12.0.0",
+        "lucide-react": "^0.575.0"
+      },
+      "files": [
+        {
+          "path": "app/page.tsx",
+          "type": "page",
+          "description": "Page entry point"
+        },
+        {
+          "path": "components/hero.tsx",
+          "type": "component",
+          "description": "Feature-focused hero with icon grid"
+        },
+        {
+          "path": "lib/data.ts",
+          "type": "data",
+          "description": "Hero and feature data"
+        }
+      ],
+      "props": {
+        "title": {
+          "type": "string",
+          "description": "Main gradient headline"
+        },
+        "description": {
+          "type": "string",
+          "description": "Hero description text"
+        }
+      },
+      "features": [
+        {
+          "icon": "Zap",
+          "title": "Lightning Fast",
+          "description": "Optimized for performance"
+        },
+        {
+          "icon": "Shield",
+          "title": "Secure by Default",
+          "description": "Built with security in mind"
+        },
+        {
+          "icon": "Rocket",
+          "title": "Deploy Instantly",
+          "description": "One-click deployments"
+        }
+      ],
+      "usage": "import { Hero } from '@/components/hero';\n\nexport default function Page() {\n  return <Hero />;\n}",
+      "tastes": ["apple", "linear", "ai"]
+    }
+  ],
+  "categories": {
+    "hero": {
+      "name": "Hero Sections",
+      "description": "Landing page hero sections with various layouts and styles"
+    }
+  },
+  "tastes": {
+    "apple": {
+      "name": "Apple taste",
+      "description": "Premium, glass-morphic design with sophisticated animations"
+    },
+    "linear": {
+      "name": "Linear taste",
+      "description": "Minimal, clean, functional design with subtle interactions"
+    },
+    "ai": {
+      "name": "AI taste",
+      "description": "Gradient-heavy, futuristic design with bold animations"
+    }
+  }
+}

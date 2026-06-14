@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Landix UI Component Registry",
+  "name_for_model": "landix_ui",
+  "description_for_human": "Beautiful startup sections and components for shadcn/ui with multiple design tastes",
+  "description_for_model": "A component registry providing React/Next.js UI components in three design languages (Apple, Linear, AI tastes). Components include hero sections with various layouts. Each component has registry source code and preview implementations.",
+  "api": {
+    "type": "openapi",
+    "url": "/api/registry-spec.json"
+  },
+  "auth": {
+    "type": "none"
+  },
+  "logo_url": "/logo.png",
+  "contact_email": "support@landix.design",
+  "legal_info_url": "/legal"
+}

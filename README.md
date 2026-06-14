@@ -1,25 +1,78 @@
-# ✦ Landix Art
+# Landix UI
 
-**UI library for Design Engineers.**  
-Free and open-source animated components and effects built with Next.js, Typescript, Tailwind CSS, Shadcn and Motion.
+Beautiful startup sections and components for shadcn/ui with multiple design tastes.
 
-## 📖 The Story: Why Landix Art?
+## Features
 
-Landix originally started as a simple, traditional premium template marketplace. We sold static templates to developers who needed to build landing pages quickly.
+- 🎨 **Three Design Tastes**: Apple, Linear, and AI-inspired design languages
+- 🚀 **Production Ready**: Built with React 19, Next.js 16, and Tailwind CSS 4
+- 📦 **Registry System**: Distributable components with preview versions
+- 🎭 **Live Previews**: Interactive component playground in documentation
+- ♿ **Accessible**: Semantic HTML and ARIA-compliant components
+- 🤖 **AI-Friendly**: Machine-readable metadata for AI assistants
 
-However, we noticed a recurring problem: **Developers didn't want rigid templates; they wanted composable pieces.** They wanted to extract that *one cool animated button* or that *specific scrolling marquee* without ripping apart an entire template.
+## Quick Start
 
-With the rise of tools like `shadcn/ui`, the paradigm shifted. Developers prefer copy-pasting raw, accessible code that they fully control. 
+```bash
+npm install
+npm run dev
+```
 
-So, we made a hard pivot. We dismantled our premium templates, extracted all the highly-animated, complex UI sections, rewrote them using **Motion** and **Tailwind CSS**, aligned their architecture with **shadcn/ui**, and open-sourced them. 
+Visit `http://localhost:3000/docs` to browse components.
 
-Now, Landix is a premium library of copy-and-paste elements designed for maximum customizability. It empowers developers to launch modern, animation-heavy SaaS landing pages with just a few lines of code, maintaining full control over the output.
+## Components
 
-## ✨ Features
+### Hero Sections
 
-- **Copy & Paste Ready:** No npm packages that bloat your bundle. Just copy the code.
-- **shadcn/ui Compatible:** Seamlessly integrates with your existing shadcn setup.
-- **Highly Animated:** Powered by Framer Motion for buttery-smooth interactions.
-- **Fully Typed:** Built with TypeScript for maximum developer experience.
-- **Custom CLI (Registry):** Add complex blocks with a single command (Coming Soon).
+- **Hero 1**: Classic hero with navigation, intro, and partner logos
+- **Hero 2**: Gradient-focused hero with badge and CTA
+- **Hero 3**: Two-column layout with social proof and ratings
+- **Hero 4**: Feature-focused hero with icon grid
 
+Each component is available in three design tastes:
+
+- **Apple taste**: Premium, glass-morphic, sophisticated
+- **Linear taste**: Minimal, clean, functional
+- **AI taste**: Gradient-heavy, animated, futuristic
+
+## Project Structure
+
+```
+/registry               # Distributable source components
+/src/app/preview        # UI-adapted preview versions
+/src/app/(main-pages)/docs  # Interactive documentation
+/src/contexts           # React contexts (taste management)
+/src/components         # Shared components
+```
+
+## Using Components
+
+Each component in `/registry` can be copied into your project:
+
+```tsx
+// Example: Using hero-02
+import { Hero } from "@/components/hero";
+
+export default function Page() {
+  return <Hero />;
+}
+```
+
+## Documentation
+
+- `/public/llms.txt` - AI-friendly project overview
+- `/registry-manifest.json` - Structured component metadata
+- `/CONTRIBUTING.md` - Development guidelines
+
+## Tech Stack
+
+- React 19.2
+- Next.js 16.1
+- Tailwind CSS 4
+- Motion (Framer Motion fork)
+- Lucide React
+- TypeScript 5
+
+## License
+
+MIT

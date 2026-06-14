@@ -1,0 +1,19 @@
+# robots.txt for Landix UI
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://landix.design/sitemap.xml
+
+# Disallow admin/internal paths if any
+Disallow: /api/
+Disallow: /_next/
+Disallow: /preview/
+
+# Allow documentation and public pages
+Allow: /docs/
+Allow: /
+
+# Crawl delay (optional, adjust as needed)
+Crawl-delay: 1

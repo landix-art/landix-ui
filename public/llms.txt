@@ -1,0 +1,82 @@
+# Landix UI - Component Registry
+
+> Beautiful startup sections and components for shadcn/ui
+
+## Project Structure
+
+### Registry (`/registry`)
+Distributable source code for components. Each component lives in its own directory with:
+- `app/page.tsx` - Page entry point
+- `components/` - Component implementations
+- `lib/` - Data and utilities
+
+### Preview (`/src/app/preview`)
+UI-adapted versions of registry components for live preview.
+Each preview mirrors its registry counterpart with enhanced styling.
+
+### Documentation (`/src/app/(main-pages)/docs`)
+Interactive documentation with live component previews.
+Features taste-based filtering (Apple, Linear, AI design languages).
+
+## Available Components
+
+### Hero Sections
+- **hero-01**: Classic hero with header, intro section, and partner logos
+  - Registry: `/registry/hero-01/`
+  - Preview: `/src/app/preview/hero-1/`
+  
+- **hero-02**: Gradient-focused hero with badge and CTA
+  - Registry: `/registry/hero-02/`
+  - Preview: `/src/app/preview/hero-2/`
+  - Features: Motion animations, gradient text, sparkle icon
+  
+- **hero-03**: Two-column layout with social proof
+  - Registry: `/registry/hero-03/`
+  - Preview: `/src/app/preview/hero-3/`
+  - Features: User avatars, star ratings, play button
+  
+- **hero-04**: Feature-focused hero with icon grid
+  - Registry: `/registry/hero-04/`
+  - Preview: `/src/app/preview/hero-4/`
+  - Features: Three-column feature cards, gradient background
+
+## Installation
+
+Components use:
+- React 19+
+- Next.js 16+
+- Tailwind CSS 4
+- Motion (framer-motion fork)
+- Lucide React (icons)
+
+## Taste System
+
+The docs feature a taste filter with three design languages:
+
+- **Apple taste**: Premium, glass-morphic, sophisticated
+- **Linear taste**: Minimal, clean, functional
+- **AI taste**: Gradient-heavy, animated, futuristic
+
+Each component adapts its visual style based on selected taste.
+
+## Key Files
+
+- `/src/contexts/TasteContext.tsx` - Taste state management
+- `/src/data/category.ts` - Documentation categories
+- `/src/components/docs/Hero.tsx` - Hero documentation component
+- `/src/components/playground/ComponentPlayground.tsx` - Live preview playground
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+## Registry Build
+
+```bash
+npm run registry:build
+```
+
+This generates distributable component packages from `/registry`.
