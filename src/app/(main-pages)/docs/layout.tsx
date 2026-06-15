@@ -4,13 +4,19 @@ import { categories, groupOrder } from "@/data/category";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { TasteProvider, useTaste, type Taste } from "@/contexts/TasteContext";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Apple, Command, Sparkles } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 
-const TASTE_OPTIONS: { value: Taste; label: string }[] = [
-  { value: "apple", label: "Apple taste" },
-  { value: "linear", label: "Linear taste" },
-  { value: "ai", label: "AI taste" },
+type TasteOption = {
+  value: Taste;
+  label: string;
+  icon: React.ElementType;
+};
+
+const TASTE_OPTIONS: TasteOption[] = [
+  { value: "apple", label: "Apple taste", icon: Apple },
+  { value: "linear", label: "Linear taste", icon: Command },
+  { value: "ai", label: "AI taste", icon: Sparkles },
 ];
 
 function TasteDropdown() {
@@ -34,41 +40,57 @@ function TasteDropdown() {
     };
   }, [isOpen]);
 
-  const selectedOption = TASTE_OPTIONS.find((opt) => opt.value === taste);
+  const selectedOption = TASTE_OPTIONS.find((opt) => opt.value === taste) || TASTE_OPTIONS[0];
+  const SelectedIcon = selectedOption.icon;
 
   return (
     <div ref={dropdownRef} className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between gap-2 w-full px-3 py-2 text-sm font-medium rounded-lg border border-sidebar-border bg-sidebar hover:bg-sidebar-accent transition-colors"
+        className="flex w-full items-center justify-between gap-2 rounded-md border border-sidebar-border bg-sidebar px-3 py-2 text-sm shadow-sm transition-all hover:bg-sidebar-accent focus:outline-none focus:ring-2 focus:ring-sidebar-border/50"
       >
-        <span className="text-sidebar-foreground">{selectedOption?.label}</span>
+        <div className="flex items-center gap-2.5">
+          <SelectedIcon className="h-4 w-4 text-sidebar-foreground/70" />
+          <span className="font-medium text-sidebar-foreground">
+            {selectedOption.label}
+          </span>
+        </div>
         <ChevronDown
           size={16}
-          className={`text-sidebar-foreground/50 transition-transform ${
+          className={`text-sidebar-foreground/50 transition-transform duration-200 ${
             isOpen ? "rotate-180" : ""
           }`}
         />
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-1 py-1 bg-sidebar border border-sidebar-border rounded-lg shadow-lg z-50">
-          {TASTE_OPTIONS.map((option) => (
-            <button
-              key={option.value}
-              onClick={() => {
-                setTaste(option.value);
-                setIsOpen(false);
-              }}
-              className={`w-full text-left px-3 py-2 text-sm transition-colors ${
-                taste === option.value
-                  ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium"
-                  : "text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-              }`}
-            >
-              {option.label}
-            </button>
-          ))}
+        <div className="absolute left-0 right-0 top-full z-50 mt-1.5 flex flex-col gap-0.5 rounded-md border border-sidebar-border bg-sidebar p-1 shadow-md animate-in fade-in zoom-in-95 duration-100">
+          {TASTE_OPTIONS.map((option) => {
+            const Icon = option.icon;
+            const isSelected = taste === option.value;
+
+            return (
+              <button
+                key={option.value}
+                onClick={() => {
+                  setTaste(option.value);
+                  setIsOpen(false);
+                }}
+                className={`flex w-full items-center gap-2.5 rounded-sm px-2 py-1.5 text-sm transition-colors ${
+                  isSelected
+                    ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium"
+                    : "text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                }`}
+              >
+                <Icon
+                  className={`h-4 w-4 shrink-0 transition-opacity ${
+                    isSelected ? "opacity-100" : "opacity-60"
+                  }`}
+                />
+                <span>{option.label}</span>
+              </button>
+            );
+          })}
         </div>
       )}
     </div>
@@ -93,7 +115,7 @@ function DocsLayoutContent({
     <div className="flex min-h-screen bg-background">
       {/* Sidebar */}
       <aside className="w-64 shrink-0 border-r border-sidebar-border bg-sidebar p-4">
-        <div className="mb-4">
+        <div className="mb-6">
           <TasteDropdown />
         </div>
         

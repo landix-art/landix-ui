@@ -6,58 +6,13 @@ import { useTaste } from "@/contexts/TasteContext";
 const heroData = [
   {
     id: "hero-1",
-    apple: {
-      title: 'Hero 1 - Apple taste',
-      previewUrl: 'http://localhost:3000/preview/hero-1',
-      files: [
-        {
-          fileName: 'components/IntroSection.tsx',
-          language: 'tsx',
-          code: `import Image from "next/image";
-
-interface Logo {
-  imgSrc: string;
-  alt: string;
-}
-
-interface IntroSectionProps {
-  title?: string;
-  description?: string;
-  logos?: Logo[];
-}
-
-export default function IntroSection({ title, description, logos }: IntroSectionProps) {
-  return (
-    <section className="relative z-10 overflow-hidden">
-      <div className="container mt-48 mb-24 flex flex-col flex-wrap justify-center relative z-10">
-        <h1 className="text-center lg:text-left lg:w-212.5">{title}</h1>
-        <p className="text-center lg:w-187.5 lg:text-left lg:text-lg lg:mt-5 text-gray-300">
-          {description}
-        </p>
-        <ul className="flex gap-10 items-center my-7">
-          {logos?.map((e, i) => (
-            <li key={i}>
-              <Image src={e.imgSrc} alt={e.alt} width={100} height={100} />
-            </li>
-          ))}
-        </ul>
-        <button className="btn glass text-white mt-5 w-max rounded-xl">
-          Call to action
-        </button>
-      </div>
-    </section>
-  );
-}`,
-        },
-      ],
-    },
     linear: {
-      title: 'Hero 1 - Linear taste',
-      previewUrl: 'http://localhost:3000/preview/hero-1',
+      title: "Hero 1 - Linear taste",
+      previewUrl: "http://localhost:3000/preview/hero-1",
       files: [
         {
-          fileName: 'components/IntroSection.tsx',
-          language: 'tsx',
+          fileName: "components/IntroSection.tsx",
+          language: "tsx",
           code: `interface IntroSectionProps {
   title?: string;
   description?: string;
@@ -79,52 +34,16 @@ export default function IntroSection({ title, description }: IntroSectionProps) 
         },
       ],
     },
-    ai: {
-      title: 'Hero 1 - AI taste',
-      previewUrl: 'http://localhost:3000/preview/hero-1',
-      files: [
-        {
-          fileName: 'components/IntroSection.tsx',
-          language: 'tsx',
-          code: `import { motion } from "motion/react";
-
-interface IntroSectionProps {
-  title?: string;
-  description?: string;
-}
-
-export default function IntroSection({ title, description }: IntroSectionProps) {
-  return (
-    <motion.section
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="py-32 px-6 bg-linear-to-b from-purple-900/20 to-transparent"
-    >
-      <div className="max-w-5xl mx-auto text-center">
-        <h1 className="text-7xl font-bold mb-6 bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-          {title}
-        </h1>
-        <p className="text-xl text-gray-400 mb-8">{description}</p>
-        <button className="px-8 py-4 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-xl">
-          Launch
-        </button>
-      </div>
-    </motion.section>
-  );
-}`,
-        },
-      ],
-    },
   },
   {
     id: "hero-2",
     apple: {
-      title: 'Hero 2 - Apple taste',
-      previewUrl: 'http://localhost:3000/preview/hero-2',
+      title: "Hero 2 - Apple taste",
+      previewUrl: "http://localhost:3000/preview/hero-2",
       files: [
         {
-          fileName: 'components/HeroSection.tsx',
-          language: 'tsx',
+          fileName: "components/HeroSection.tsx",
+          language: "tsx",
           code: `import { Sparkles } from "lucide-react";
 
 export default function HeroSection() {
@@ -155,12 +74,12 @@ export default function HeroSection() {
       ],
     },
     linear: {
-      title: 'Hero 2 - Linear taste',
-      previewUrl: 'http://localhost:3000/preview/hero-2',
+      title: "Hero 2 - Linear taste",
+      previewUrl: "http://localhost:3000/preview/hero-2",
       files: [
         {
-          fileName: 'components/HeroSection.tsx',
-          language: 'tsx',
+          fileName: "components/HeroSection.tsx",
+          language: "tsx",
           code: `export default function HeroSection() {
   return (
     <section className="py-32 px-6">
@@ -185,12 +104,12 @@ export default function HeroSection() {
       ],
     },
     ai: {
-      title: 'Hero 2 - AI taste',
-      previewUrl: 'http://localhost:3000/preview/hero-2',
+      title: "Hero 2 - AI taste",
+      previewUrl: "http://localhost:3000/preview/hero-2",
       files: [
         {
-          fileName: 'components/HeroSection.tsx',
-          language: 'tsx',
+          fileName: "components/HeroSection.tsx",
+          language: "tsx",
           code: `import { motion } from "motion/react";
 import { Sparkles } from "lucide-react";
 
@@ -227,12 +146,12 @@ export default function HeroSection() {
   {
     id: "hero-3",
     apple: {
-      title: 'Hero 3 - Apple taste',
-      previewUrl: 'http://localhost:3000/preview/hero-3',
+      title: "Hero 3 - Apple taste",
+      previewUrl: "http://localhost:3000/preview/hero-3",
       files: [
         {
-          fileName: 'components/HeroSection.tsx',
-          language: 'tsx',
+          fileName: "components/HeroSection.tsx",
+          language: "tsx",
           code: `import { Play, Star } from "lucide-react";
 
 export default function HeroSection() {
@@ -277,12 +196,12 @@ export default function HeroSection() {
       ],
     },
     linear: {
-      title: 'Hero 3 - Linear taste',
-      previewUrl: 'http://localhost:3000/preview/hero-3',
+      title: "Hero 3 - Linear taste",
+      previewUrl: "http://localhost:3000/preview/hero-3",
       files: [
         {
-          fileName: 'components/HeroSection.tsx',
-          language: 'tsx',
+          fileName: "components/HeroSection.tsx",
+          language: "tsx",
           code: `import { Play } from "lucide-react";
 
 export default function HeroSection() {
@@ -317,12 +236,12 @@ export default function HeroSection() {
       ],
     },
     ai: {
-      title: 'Hero 3 - AI taste',
-      previewUrl: 'http://localhost:3000/preview/hero-3',
+      title: "Hero 3 - AI taste",
+      previewUrl: "http://localhost:3000/preview/hero-3",
       files: [
         {
-          fileName: 'components/HeroSection.tsx',
-          language: 'tsx',
+          fileName: "components/HeroSection.tsx",
+          language: "tsx",
           code: `import { motion } from "motion/react";
 import { Play, Star } from "lucide-react";
 
@@ -370,12 +289,12 @@ export default function HeroSection() {
   {
     id: "hero-4",
     apple: {
-      title: 'Hero 4 - Apple taste',
-      previewUrl: 'http://localhost:3000/preview/hero-4',
+      title: "Hero 4 - Apple taste",
+      previewUrl: "http://localhost:3000/preview/hero-4",
       files: [
         {
-          fileName: 'components/HeroSection.tsx',
-          language: 'tsx',
+          fileName: "components/HeroSection.tsx",
+          language: "tsx",
           code: `import { Zap, Shield, Rocket } from "lucide-react";
 
 export default function HeroSection() {
@@ -422,12 +341,12 @@ export default function HeroSection() {
       ],
     },
     linear: {
-      title: 'Hero 4 - Linear taste',
-      previewUrl: 'http://localhost:3000/preview/hero-4',
+      title: "Hero 4 - Linear taste",
+      previewUrl: "http://localhost:3000/preview/hero-4",
       files: [
         {
-          fileName: 'components/HeroSection.tsx',
-          language: 'tsx',
+          fileName: "components/HeroSection.tsx",
+          language: "tsx",
           code: `import { Zap, Shield, Rocket } from "lucide-react";
 
 export default function HeroSection() {
@@ -470,12 +389,12 @@ export default function HeroSection() {
       ],
     },
     ai: {
-      title: 'Hero 4 - AI taste',
-      previewUrl: 'http://localhost:3000/preview/hero-4',
+      title: "Hero 4 - AI taste",
+      previewUrl: "http://localhost:3000/preview/hero-4",
       files: [
         {
-          fileName: 'components/HeroSection.tsx',
-          language: 'tsx',
+          fileName: "components/HeroSection.tsx",
+          language: "tsx",
           code: `import { motion } from "motion/react";
 import { Zap, Shield, Rocket } from "lucide-react";
 
@@ -545,7 +464,12 @@ export default function Hero() {
   return (
     <div className="space-y-12">
       {heroData.map((hero) => {
-        const demo = hero[taste];
+        const demo = (hero as any)[taste];
+
+        if (!demo) {
+          return null;
+        }
+
         return (
           <div key={hero.id}>
             <ComponentPlayground data={demo} />
