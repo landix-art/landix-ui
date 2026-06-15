@@ -3,10 +3,111 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Sun, Moon, Monitor, Github, Menu, X } from "lucide-react";
+import { 
+  Sun, Moon, Monitor, Github, Menu, X, 
+  ChevronDown, Apple, Command, Sparkles 
+} from "lucide-react";
 import Image from "next/image";
 
+import { categories, groupOrder } from "@/data/category";
+import { useTaste, type Taste } from "@/contexts/TasteContext";
+
 type Theme = "light" | "dark" | "system";
+
+type TasteOption = {
+  value: Taste;
+  label: string;
+  icon: React.ElementType;
+};
+
+const TASTE_OPTIONS: TasteOption[] = [
+  { value: "apple", label: "Apple taste", icon: Apple },
+  { value: "linear", label: "Linear taste", icon: Command },
+  { value: "ai", label: "AI taste", icon: Sparkles },
+];
+
+function TasteDropdown() {
+  const { taste, setTaste } = useTaste();
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
+  const selectedOption =
+    TASTE_OPTIONS.find((opt) => opt.value === taste) || TASTE_OPTIONS[0];
+  const SelectedIcon = selectedOption.icon;
+
+  return (
+    <div ref={dropdownRef} className="relative z-50">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex w-full items-center justify-between gap-2 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 px-3 py-2.5 text-sm shadow-sm transition-all hover:bg-neutral-50 dark:hover:bg-neutral-900 focus:outline-none focus:ring-2 focus:ring-neutral-200 dark:focus:ring-neutral-800"
+      >
+        <div className="flex items-center gap-2.5">
+          <SelectedIcon className="h-4 w-4 text-neutral-600 dark:text-neutral-400" />
+          <span className="font-medium text-neutral-900 dark:text-neutral-100">
+            {selectedOption.label}
+          </span>
+        </div>
+        <ChevronDown
+          size={16}
+          className={`text-neutral-500 transition-transform duration-200 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+
+      {isOpen && (
+        <div className="absolute left-0 right-0 top-full mt-1.5 flex flex-col gap-0.5 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 p-1 shadow-lg animate-in fade-in zoom-in-95 duration-100">
+          {TASTE_OPTIONS.map((option) => {
+            const Icon = option.icon;
+            const isSelected = taste === option.value;
+
+            return (
+              <button
+                key={option.value}
+                onClick={() => {
+                  setTaste(option.value);
+                  setIsOpen(false);
+                }}
+                className={`flex w-full items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-colors ${
+                  isSelected
+                    ? "bg-neutral-100 dark:bg-neutral-900 text-black dark:text-white font-medium"
+                    : "text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-black dark:hover:text-white"
+                }`}
+              >
+                <Icon
+                  className={`h-4 w-4 shrink-0 transition-opacity ${
+                    isSelected ? "opacity-100" : "opacity-60"
+                  }`}
+                />
+                <span>{option.label}</span>
+              </button>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
 
 export default function Navbar() {
   const [theme, setTheme] = useState<Theme>("system");
@@ -25,6 +126,13 @@ export default function Navbar() {
     { name: "Roadmap", href: "/roadmap" },
     { name: "About us", href: "/about-us" },
   ];
+
+  const groupedDocs = Object.entries(categories).reduce<
+    Record<string, { key: string; title: string }[]>
+  >((acc, [key, category]) => {
+    (acc[category.group] ??= []).push({ key, title: category.title });
+    return acc;
+  }, {});
 
   useEffect(() => {
     setIsMounted(true);
@@ -158,7 +266,7 @@ export default function Navbar() {
               Landix
             </Link>
 
-            <nav className="hidden lg:flex! items-center gap-6 text-sm font-medium">
+            <nav className="hidden lg:flex items-center gap-6 text-sm font-medium">
               {navItems.map((item) => {
                 const isActive =
                   pathname === item.href ||
@@ -256,7 +364,7 @@ export default function Navbar() {
 
       <div
         className={[
-          "fixed w-full h-full inset-0 z-999 md:hidden",
+          "fixed w-full h-full inset-0 z-1001 md:hidden",
           isMobileMenuOpen ? "pointer-events-auto" : "pointer-events-none",
         ].join(" ")}
         aria-hidden={!isMobileMenuOpen}
@@ -264,7 +372,7 @@ export default function Navbar() {
         <div
           onClick={() => setIsMobileMenuOpen(false)}
           className={[
-            "fixed! w-full! h-screen! inset-0 bg-black/40 ",
+            "fixed w-full h-screen inset-0 bg-black/40 transition-opacity duration-300",
             isMobileMenuOpen ? "opacity-100" : "opacity-0",
           ].join(" ")}
           aria-label="Close menu overlay"
@@ -273,7 +381,7 @@ export default function Navbar() {
 
         <aside
           className={[
-            "absolute left-0 top-0 bottom-0 h-screen w-[84%] max-w-[320px]",
+            "absolute left-0 top-0 bottom-0 h-screen w-[84%] max-w-[320px] flex flex-col",
             "bg-white dark:bg-neutral-950",
             "border-r border-neutral-200 dark:border-neutral-800",
             "shadow-xl",
@@ -283,7 +391,7 @@ export default function Navbar() {
           role="dialog"
           aria-modal="true"
         >
-          <div className="flex items-center justify-between h-16 px-4 border-b border-neutral-200 dark:border-neutral-800">
+          <div className="flex items-center justify-between shrink-0 h-16 px-4 border-b border-neutral-200 dark:border-neutral-800">
             <Link
               href="/"
               onClick={() => setIsMobileMenuOpen(false)}
@@ -308,28 +416,74 @@ export default function Navbar() {
             </button>
           </div>
 
-          <nav className="px-4 py-4 flex flex-col gap-3">
-            {navItems.map((item) => {
-              const isActive =
-                pathname === item.href ||
-                (item.href !== "/" && pathname.startsWith(item.href));
+          <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-4">
+            <nav className="flex flex-col gap-2">
+              {navItems.map((item) => {
+                const isActive =
+                  pathname === item.href ||
+                  (item.href !== "/" && pathname.startsWith(item.href));
 
-              return (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`rounded-lg px-3 py-2 text-base font-medium transition-colors ${
-                    isActive
-                      ? "bg-neutral-100 text-black dark:bg-neutral-900 dark:text-white"
-                      : "text-neutral-700 hover:bg-neutral-100 hover:text-black dark:text-neutral-300 dark:hover:bg-neutral-900 dark:hover:text-white"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              );
-            })}
-          </nav>
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`rounded-lg px-3 py-2 text-base font-medium transition-colors ${
+                      isActive
+                        ? "bg-neutral-100 text-black dark:bg-neutral-900 dark:text-white"
+                        : "text-neutral-700 hover:bg-neutral-100 hover:text-black dark:text-neutral-300 dark:hover:bg-neutral-900 dark:hover:text-white"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
+            </nav>
+
+            <div className="h-px w-full bg-neutral-200 dark:bg-neutral-800" />
+
+            <div>
+               <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500">
+                 Theme Taste
+               </h3>
+               <TasteDropdown />
+            </div>
+
+            <nav className="flex flex-col gap-6 mt-2 pb-6">
+              {groupOrder.map((group) => {
+                const items = groupedDocs[group];
+                if (!items?.length) return null;
+
+                return (
+                  <div key={group} className="flex flex-col gap-1.5">
+                    <h3 className="px-1 pb-1 text-[11px] font-semibold uppercase tracking-wider text-neutral-500">
+                      {group}
+                    </h3>
+
+                    {items.map(({ key, title }) => {
+                      const href = `/docs/${key}`;
+                      const isActive = pathname === href;
+
+                      return (
+                        <Link
+                          key={key}
+                          href={href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className={`rounded-md px-3 py-2 text-[13.5px] font-medium transition-colors ${
+                            isActive
+                              ? "bg-neutral-100 dark:bg-neutral-900 text-black dark:text-white"
+                              : "text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-black dark:hover:text-white"
+                          }`}
+                        >
+                          {title}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </nav>
+          </div>
         </aside>
       </div>
     </header>

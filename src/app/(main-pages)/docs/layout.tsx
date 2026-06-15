@@ -4,7 +4,8 @@ import { categories, groupOrder } from "@/data/category";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { TasteProvider, useTaste, type Taste } from "@/contexts/TasteContext";
-import { ChevronDown, Apple, Command, Sparkles } from "lucide-react";
+
+import { ChevronDown, Apple, Command, Sparkles, X } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 
 type TasteOption = {
@@ -26,7 +27,10 @@ function TasteDropdown() {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
@@ -40,7 +44,8 @@ function TasteDropdown() {
     };
   }, [isOpen]);
 
-  const selectedOption = TASTE_OPTIONS.find((opt) => opt.value === taste) || TASTE_OPTIONS[0];
+  const selectedOption =
+    TASTE_OPTIONS.find((opt) => opt.value === taste) || TASTE_OPTIONS[0];
   const SelectedIcon = selectedOption.icon;
 
   return (
@@ -114,12 +119,15 @@ function DocsLayoutContent({
   return (
     <div className="flex min-h-screen bg-background">
       {/* Sidebar */}
-      <aside className="w-64 shrink-0 border-r border-sidebar-border bg-sidebar p-4">
-        <div className="mb-6">
-          <TasteDropdown />
-        </div>
-        
-        <nav className="flex flex-col gap-6">
+      <aside
+        className={`fixed inset-y-0 left-0 z-50 w-64 shrink-0 border-r border-sidebar-border bg-sidebar transition-transform duration-300 lg:static lg:z-auto lg:translate-x-0 translate-x-0 hidden lg:block
+        `}
+      >
+        <nav className="flex h-full flex-col gap-6 overflow-y-auto p-4">
+          <div>
+            <TasteDropdown />
+          </div>
+
           {groupOrder.map((group) => {
             const items = grouped[group];
             if (!items?.length) return null;
@@ -155,7 +163,7 @@ function DocsLayoutContent({
       </aside>
 
       {/* Content */}
-      <main className="flex-1 bg-background p-8 text-foreground">
+      <main className="flex-1 bg-background p-6 text-foreground lg:p-8">
         {children}
       </main>
     </div>

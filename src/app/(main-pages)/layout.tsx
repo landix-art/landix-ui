@@ -1,6 +1,7 @@
 import { Footer } from "@/components/native/Footer";
-import Header from "@/components/native/Header";
 import "@/assets/css/index.css";
+import Navbar from "@/components/native/Header";
+import { TasteProvider } from "@/contexts/TasteContext";
 
 export default function MainLayout({
   children,
@@ -9,11 +10,13 @@ export default function MainLayout({
 }>) {
   return (
     <>
-      <Header />
+      {" "}
+      <TasteProvider>
+        <Navbar />
+        {children}
 
-      {children}
-      
-      <Footer />
+        <Footer />
+      </TasteProvider>
     </>
   );
 }
