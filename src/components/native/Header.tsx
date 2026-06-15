@@ -416,69 +416,76 @@ export default function Navbar() {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-4">
-            <nav className="flex flex-col gap-2">
+          <div className="flex-1 overflow-y-auto px-4 py-6">
+            <nav className="flex flex-col gap-2 pb-8">
               {navItems.map((item) => {
                 const isActive =
                   pathname === item.href ||
                   (item.href !== "/" && pathname.startsWith(item.href));
 
                 return (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`rounded-lg px-3 py-2 text-base font-medium transition-colors ${
-                      isActive
-                        ? "bg-neutral-100 text-black dark:bg-neutral-900 dark:text-white"
-                        : "text-neutral-700 hover:bg-neutral-100 hover:text-black dark:text-neutral-300 dark:hover:bg-neutral-900 dark:hover:text-white"
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                );
-              })}
-            </nav>
+                  <div key={item.name} className="flex flex-col">
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`rounded-lg px-3 py-2 text-base font-medium transition-colors ${
+                        isActive
+                          ? "bg-neutral-100 text-black dark:bg-neutral-900 dark:text-white"
+                          : "text-neutral-700 hover:bg-neutral-100 hover:text-black dark:text-neutral-300 dark:hover:bg-neutral-900 dark:hover:text-white"
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
 
-            <div className="h-px w-full bg-neutral-200 dark:bg-neutral-800" />
+                    {/* داکیومنت‌ها و استایل‌ها به صورت زیرمجموعه دقیقا زیر Docs */}
+                    {item.name === "Docs" && (
+                      <div className="ml-4 mt-2 flex flex-col gap-5 border-l border-neutral-200 dark:border-neutral-800 pl-4 pr-1 mb-4">
+                        
+                        {/* بخش انتخاب استایل (Taste) */}
+                        <div className="pt-2">
+                          <h3 className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-neutral-500">
+                            Theme Taste
+                          </h3>
+                          <TasteDropdown />
+                        </div>
 
-            <div>
-               <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500">
-                 Theme Taste
-               </h3>
-               <TasteDropdown />
-            </div>
+                        {/* بخش دسته‌بندی‌های داکیومنت */}
+                        <div className="flex flex-col gap-6">
+                          {groupOrder.map((group) => {
+                            const items = groupedDocs[group];
+                            if (!items?.length) return null;
 
-            <nav className="flex flex-col gap-6 mt-2 pb-6">
-              {groupOrder.map((group) => {
-                const items = groupedDocs[group];
-                if (!items?.length) return null;
+                            return (
+                              <div key={group} className="flex flex-col gap-1.5">
+                                <h3 className="px-1 pb-1 text-[11px] font-semibold uppercase tracking-wider text-neutral-500">
+                                  {group}
+                                </h3>
 
-                return (
-                  <div key={group} className="flex flex-col gap-1.5">
-                    <h3 className="px-1 pb-1 text-[11px] font-semibold uppercase tracking-wider text-neutral-500">
-                      {group}
-                    </h3>
+                                {items.map(({ key, title }) => {
+                                  const href = `/docs/${key}`;
+                                  const isDocActive = pathname === href;
 
-                    {items.map(({ key, title }) => {
-                      const href = `/docs/${key}`;
-                      const isActive = pathname === href;
-
-                      return (
-                        <Link
-                          key={key}
-                          href={href}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className={`rounded-md px-3 py-2 text-[13.5px] font-medium transition-colors ${
-                            isActive
-                              ? "bg-neutral-100 dark:bg-neutral-900 text-black dark:text-white"
-                              : "text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-black dark:hover:text-white"
-                          }`}
-                        >
-                          {title}
-                        </Link>
-                      );
-                    })}
+                                  return (
+                                    <Link
+                                      key={key}
+                                      href={href}
+                                      onClick={() => setIsMobileMenuOpen(false)}
+                                      className={`rounded-md px-3 py-2 text-[13.5px] font-medium transition-colors ${
+                                        isDocActive
+                                          ? "bg-neutral-100 dark:bg-neutral-900 text-black dark:text-white"
+                                          : "text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-black dark:hover:text-white"
+                                      }`}
+                                    >
+                                      {title}
+                                    </Link>
+                                  );
+                                })}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 );
               })}
