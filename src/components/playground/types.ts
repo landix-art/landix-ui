@@ -5,6 +5,7 @@ export interface FileItem {
 }
 
 export interface PlaygroundData {
+  description: string | undefined;
   title: string;
   files: FileItem[];
   previewUrl: string;

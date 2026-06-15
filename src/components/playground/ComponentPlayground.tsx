@@ -5,6 +5,7 @@ import { VIEWPORTS, SYNTAX, type ViewportKey } from "./constants";
 import { buildTree, getFileIcon } from "./fileTree";
 import { tokenize } from "./highlight";
 import { Tree } from "./Tree";
+import { AskAIDropdown } from "./AskAIDropdown";
 import type { ComponentPlaygroundProps } from "./types";
 
 function useIsDark(): boolean {
@@ -53,7 +54,7 @@ export const ComponentPlayground: React.FC<ComponentPlaygroundProps> = ({
 
   const colors = SYNTAX[isDark ? "dark" : "light"];
 
-  const editorBgColor = isDark ? "#0d1117" : "#fafafa"; 
+  const editorBgColor = isDark ? "#0d1117" : "#fafafa";
   const editorHeaderBgColor = isDark ? "#161b22" : "#f0f0f0";
 
   const copyCode = async () => {
@@ -81,23 +82,33 @@ export const ComponentPlayground: React.FC<ComponentPlaygroundProps> = ({
           {data?.title || "Component Preview"}
         </span>
 
-        {/* Mode Toggles */}
-        <div className="flex rounded-lg p-0.5 bg-muted">
-          {(["preview", "code"] as const).map((m) => (
-            <button
-              key={m}
-              onClick={() => setMode(m)}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all duration-200
-                ${
-                  mode === m
-                    ? "bg-background text-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted-foreground/10"
-                }`}
-            >
-              {m === "preview" ? <Eye size={14} /> : <Code2 size={14} />}
-              {m === "preview" ? "Preview" : "Code"}
-            </button>
-          ))}
+        <div className="flex items-center gap-2">
+          {/* Ask AI dropdown */}
+          <AskAIDropdown
+            title={data?.title || "Component"}
+            fileName={current.fileName}
+            code={current.code || ""}
+            description={data?.description}
+          />
+
+          {/* Mode Toggles */}
+          <div className="flex rounded-lg p-0.5 bg-muted">
+            {(["preview", "code"] as const).map((m) => (
+              <button
+                key={m}
+                onClick={() => setMode(m)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all duration-200
+                  ${
+                    mode === m
+                      ? "bg-background text-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted-foreground/10"
+                  }`}
+              >
+                {m === "preview" ? <Eye size={14} /> : <Code2 size={14} />}
+                {m === "preview" ? "Preview" : "Code"}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -125,7 +136,7 @@ export const ComponentPlayground: React.FC<ComponentPlaygroundProps> = ({
 
             {/* Code Content Container */}
             <div className="flex-1 flex flex-col min-w-0">
-              <div 
+              <div
                 className="flex items-center justify-between px-4 h-10 border-b border-border"
                 style={{ backgroundColor: editorHeaderBgColor }}
               >
@@ -148,7 +159,7 @@ export const ComponentPlayground: React.FC<ComponentPlaygroundProps> = ({
                 </button>
               </div>
 
-              <div 
+              <div
                 className="flex-1 overflow-auto transition-colors duration-200"
                 style={{ backgroundColor: editorBgColor }}
               >
@@ -215,7 +226,7 @@ const PreviewPane: React.FC<{
             );
           })}
         </div>
-        
+
         <div className="flex items-center gap-1">
           <a
             href={url}
