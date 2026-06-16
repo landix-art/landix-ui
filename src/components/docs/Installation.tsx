@@ -14,18 +14,20 @@ const CodeBlock = ({ code, language = "bash" }: { code: string; language?: strin
 
   return (
     <div className="relative group mt-4">
-      <pre className="bg-muted/30 text-foreground rounded-lg p-4 overflow-x-auto border border-border">
-        <code className="text-[13px] leading-relaxed font-mono">{code}</code>
+      <pre className="bg-muted/30 text-foreground rounded-lg p-3 sm:p-4 overflow-x-auto border border-border">
+        <code className="text-[12px] sm:text-[13px] leading-relaxed font-mono whitespace-pre-wrap break-words sm:whitespace-pre sm:break-normal">
+          {code}
+        </code>
       </pre>
       <button
         onClick={copyCode}
-        className="absolute top-3 right-3 p-2 rounded-md bg-background border border-border hover:bg-accent hover:text-accent-foreground text-muted-foreground transition-all opacity-0 group-hover:opacity-100"
+        className="absolute top-2 right-2 sm:top-3 sm:right-3 p-1.5 sm:p-2 rounded-md bg-background border border-border hover:bg-accent hover:text-accent-foreground text-muted-foreground transition-all opacity-0 group-hover:opacity-100"
         title="Copy code"
       >
         {copied ? (
-          <Check className="size-3.5 text-foreground" />
+          <Check className="size-3 sm:size-3.5 text-foreground" />
         ) : (
-          <Copy className="size-3.5" />
+          <Copy className="size-3 sm:size-3.5" />
         )}
       </button>
     </div>
@@ -44,15 +46,15 @@ const Step = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div className="flex gap-6 pb-12 border-l border-border last:border-l-transparent pl-8 ml-3 relative">
-      <div className="absolute -left-4.25 top-0 w-8 h-8 rounded-full bg-background border border-border flex items-center justify-center text-foreground text-sm font-medium">
+    <div className="flex gap-4 sm:gap-6 pb-10 sm:pb-12 border-l border-border last:border-l-transparent pl-6 sm:pl-8 ml-3 relative">
+      <div className="absolute -left-4 top-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-background border border-border flex items-center justify-center text-foreground text-xs sm:text-sm font-medium">
         {number}
       </div>
-      
-      <div className="flex-1 -mt-1">
-        <div className="flex items-center gap-3 mb-3">
-          <Icon className="size-5 text-muted-foreground" />
-          <h3 className="text-xl font-semibold text-foreground">{title}</h3>
+
+      <div className="flex-1 -mt-1 min-w-0">
+        <div className="flex items-center gap-2 sm:gap-3 mb-3">
+          <Icon className="size-4 sm:size-5 text-muted-foreground shrink-0" />
+          <h3 className="text-base sm:text-xl font-semibold text-foreground">{title}</h3>
         </div>
         <div className="space-y-4 text-muted-foreground leading-relaxed text-sm">
           {children}
@@ -64,9 +66,9 @@ const Step = ({
 
 export default function Installation() {
   return (
-    <div className="pt-0 py-12 text-foreground">
-      <div className="mb-16">
-        <p className="text-lg text-muted-foreground font-light">
+    <div className="pt-0 py-8 sm:py-12 text-foreground px-4 sm:px-0">
+      <div className="mb-10 sm:mb-16">
+        <p className="text-base sm:text-lg text-muted-foreground font-light">
           Get started with Landix UI in minutes. Follow these simple steps to add beautiful components to your project.
         </p>
       </div>
@@ -77,7 +79,7 @@ export default function Installation() {
             First, make sure you have a Next.js project with Tailwind CSS set up. Then install the required dependencies:
           </p>
           <CodeBlock code="npm install motion lucide-react tailwind-merge class-variance-authority clsx" />
-          <div className="bg-muted/40 border border-border rounded-lg p-4 mt-4">
+          <div className="bg-muted/40 border border-border rounded-lg p-3 sm:p-4 mt-4">
             <p className="text-sm text-muted-foreground">
               <strong className="text-foreground font-medium">Note:</strong> Landix UI uses Motion (framer-motion fork) for animations. Make sure your project supports React 19+.
             </p>
@@ -136,8 +138,12 @@ export function cn(...inputs: ClassValue[]) {
 
         <Step number={4} title="Copy Components" icon={FileCode}>
           <p>
-            Browse the documentation, find a component you like, and copy it into your project. 
-            Each component in the <code className="px-1.5 py-0.5 bg-muted border border-border rounded-md text-[13px] text-foreground">/registry</code> folder can be copied directly:
+            Browse the documentation, find a component you like, and copy it into your project.
+            Each component in the{" "}
+            <code className="px-1.5 py-0.5 bg-muted border border-border rounded-md text-[12px] sm:text-[13px] text-foreground">
+              /registry
+            </code>{" "}
+            folder can be copied directly:
           </p>
           <CodeBlock
             language="bash"
@@ -165,7 +171,7 @@ export default function Page() {
   );
 }`}
           />
-          <div className="bg-muted/40 border border-border rounded-lg p-4 mt-4">
+          <div className="bg-muted/40 border border-border rounded-lg p-3 sm:p-4 mt-4">
             <p className="text-sm text-muted-foreground">
               <strong className="text-foreground font-medium">Success!</strong> Your component is now ready. Customize the props and styling to match your brand.
             </p>
@@ -173,25 +179,37 @@ export default function Page() {
         </Step>
       </div>
 
-      <div className="mt-8 p-6 rounded-xl border border-border bg-card">
-        <h2 className="text-lg font-semibold mb-4 text-foreground">Additional Resources</h2>
-        <ul className="space-y-3">
-          <li className="flex items-start gap-3">
+      <div className="mt-6 sm:mt-8 p-4 sm:p-6 rounded-xl border border-border bg-card">
+        <h2 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-foreground">Additional Resources</h2>
+        <ul className="space-y-2 sm:space-y-3">
+          <li className="flex items-start gap-2 sm:gap-3">
             <Check className="size-4 text-muted-foreground mt-0.5 shrink-0" />
             <span className="text-sm text-muted-foreground">
-              Browse all components in the <a href="/docs/hero" className="text-foreground hover:text-primary underline decoration-border underline-offset-4 transition-colors">Hero Blocks</a> section
+              Browse all components in the{" "}
+              <a href="/docs/hero" className="text-foreground hover:text-primary underline decoration-border underline-offset-4 transition-colors">
+                Hero Blocks
+              </a>{" "}
+              section
             </span>
           </li>
-          <li className="flex items-start gap-3">
+          <li className="flex items-start gap-2 sm:gap-3">
             <Check className="size-4 text-muted-foreground mt-0.5 shrink-0" />
             <span className="text-sm text-muted-foreground">
-              Check out the <a href="https://github.com/yourusername/landix-ui" className="text-foreground hover:text-primary underline decoration-border underline-offset-4 transition-colors">GitHub repository</a> for examples
+              Check out the{" "}
+              <a href="https://github.com/yourusername/landix-ui" className="text-foreground hover:text-primary underline decoration-border underline-offset-4 transition-colors">
+                GitHub repository
+              </a>{" "}
+              for examples
             </span>
           </li>
-          <li className="flex items-start gap-3">
+          <li className="flex items-start gap-2 sm:gap-3">
             <Check className="size-4 text-muted-foreground mt-0.5 shrink-0" />
             <span className="text-sm text-muted-foreground">
-              Read the <code className="px-1.5 py-0.5 bg-muted border border-border rounded-md text-[13px] text-foreground">registry-manifest.json</code> for detailed component specs
+              Read the{" "}
+              <code className="px-1.5 py-0.5 bg-muted border border-border rounded-md text-[12px] sm:text-[13px] text-foreground">
+                registry-manifest.json
+              </code>{" "}
+              for detailed component specs
             </span>
           </li>
         </ul>
